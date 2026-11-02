@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IVMoto</string>
+    <string name="about_done">Done</string>
+    <string name="controls_auto">Auto</string>
+    <string name="controls_day">Day</string>
+    <string name="controls_night">Night</string>
+    <string name="controls_home">Home</string>
+    <string name="controls_voice">Voice</string>
+    <string name="res_off">Off</string>
+    <string name="gpx_map">Map</string>
+    <string name="gpx_ride">Ride</string>
+    <string name="gpx_search">Search</string>
+    <string name="gpx_units">Units</string>
+    <string name="gpx_metric">Metric</string>
+    <string name="gpx_imperial">Imperial</string>
+    <string name="gpx_on">On</string>
+    <string name="gpx_dark">Dark</string>
+    <string name="gpx_black">Black</string>
+    <string name="gpx_slate">Slate</string>
+    <string name="gpx_forest">Forest</string>
+    <string name="gpx_route_mode">Route mode</string>
+    <string name="gpx_fast">Fast</string>
+    <string name="gpx_fun">Fun</string>
+    <string name="gpx_circuit">Circuit</string>
+    <string name="gpx_avoid_tolls">Avoid tolls</string>
+    <string name="gpx_avoid_highways">Avoid highways</string>
+    <string name="gpx_set_home_here">Set Home here</string>
+    <string name="hud_hub">Hub</string>
+    <string name="main_stop">Stop</string>
+    <string name="main_go">Go</string>
+    <string name="setup_auto_day_night">Auto (day / night)</string>
+    <string name="dashset_settings">Settings</string>
+    <string name="dashset_theme">Theme</string>
+    <string name="dashset_next_stop">Next stop</string>
+    <string name="dashset_auto_finish">Auto-finish</string>
+    <string name="dashset_chrome">Chrome</string>
+    <string name="dashset_3d">3D</string>
+    <string name="dashset_legacy_scenic_length_unused_circuit_is_there_and">Legacy scenic length (unused — Circuit is there and back)</string>
+    <string name="dashset_30">30</string>
+    <string name="dashset_60">60</string>
+    <string name="dashset_100">100</string>
+    <string name="dash_search_here">Search here</string>
+    <string name="dash_next_maneuver">Next maneuver</string>
+    <string name="dash_time">TIME</string>
+    <string name="dash_arrive">ARRIVE</string>
+    <string name="dash_left">LEFT</string>
+    <string name="dash_alt_m">ALT m</string>
+    <string name="dash_limit">LIMIT</string>
+    <string name="dash_end">End</string>
+    <string name="dash_save">★ Save</string>
+    <string name="dash_marker">＋ Marker</string>
+    <string name="dash_you_ve_arrived">You\'ve arrived</string>
+    <string name="dash_mark_this_spot_or_keep_riding">Mark this spot or keep riding</string>
+    <string name="dash_park_here">Park here</string>
+    <string name="dash_find_parking">Find parking</string>
+    <string name="dash_done_free_ride">Done · free ride</string>
+    <string name="dash_recenter_gps">Recenter GPS</string>
+    <string name="dash_zoom_in">Zoom in</string>
+    <string name="dash_zoom_out">Zoom out</string>
+    <string name="dash_compass">Compass</string>
+    <string name="dash_menu">Menu</string>
+    <string name="dash_fit_route">Fit route</string>
+    <string name="dash_search_places_or_address">Search places or address</string>
+    <string name="dash_end_navigation">End navigation</string>
+    <string name="dash_go_home">Go Home</string>
+    <string name="dash_recenter_recalc">Recenter / Recalc</string>
+    <string name="dash_record_ride">Record ride</string>
+    <string name="dash_follow">Follow</string>
+    <string name="dash_heading_up">Heading up</string>
+    <string name="dash_str">－</string>
+    <string name="dash_str_2">＋</string>
+    <string name="dash_close">Close</string>
+    <string name="dash_cancel">Cancel</string>
+
+    <!-- Connection phases (Main status line) -->
+    <string name="conn_ready">Ready</string>
+    <string name="conn_starting_aa">Starting Android Auto…</string>
+    <string name="conn_aa_video_live">Android Auto live — joining bike…</string>
+    <string name="conn_joining_wifi">Connecting to bike Wi-Fi…</string>
+    <string name="conn_pxc_connecting">Linking to dashboard…</string>
+    <string name="conn_streaming">Connected — projecting to dash</string>
+    <string name="conn_mirroring">Mirroring screen to dash</string>
+    <string name="conn_reconnecting">Link dropped — reconnecting…</string>
+    <string name="conn_waiting_for_bike">Bike out of range — waiting…</string>
+    <string name="conn_stopped">Stopped</string>
+    <string name="conn_error">Error — see logs</string>
+    <string name="conn_detail_connect_failed">Connect failed — see Logs / Share Logs</string>
+
+    <!-- MainActivity dynamic / dialogs -->
+
+    <!-- Notifications -->
+    <string name="notif_aa_channel">Android Auto receiver</string>
+    <string name="notif_aa_title">IVMoto — Android Auto</string>
+    <string name="notif_aa_reconnecting">Reconnecting to the bike dash…</string>
+    <string name="notif_aa_receiving">Receiving Android Auto for the bike dash — tap to open</string>
+    <string name="notif_bike_reconnected">Bike reconnected</string>
+    <string name="notif_tap_resume">Tap to resume projection to the dash</string>
+    <string name="notif_map_title">IVMoto Map</string>
+    <string name="notif_map_text">Map on the dash — handlebars use your button mapping</string>
+    <string name="notif_mirror_channel">Screen mirroring</string>
+    <string name="notif_mirror_title">IVMoto</string>
+    <string name="notif_mirror_text">Mirroring screen to bike</string>
+    <string name="notif_media_channel">Bike button control</string>
+
+    <!-- Setup preference descriptions (enums) -->
+    <string name="pref_vq_smooth">Smoother — less data/latency</string>
+    <string name="pref_vq_balanced">Balanced (recommended)</string>
+    <string name="pref_vq_sharp">Sharper — more data</string>
+    <string name="pref_fit_fill">Fill — edge to edge (crops a little)</string>
+    <string name="pref_fit_fit">Fit — no cropping (black bars)</string>
+    <string name="pref_fit_stretch">Stretch — fills, slight distortion</string>
+    <string name="pref_power_auto">Auto — adapts to heat &amp; signal</string>
+    <string name="pref_power_smooth">Smooth — 30 fps (most battery)</string>
+    <string name="pref_power_balanced">Balanced — 24 fps (recommended)</string>
+    <string name="pref_power_saver">Battery saver — 20 fps (coolest)</string>
+    <string name="pref_res_auto">Auto — match your bike (recommended)</string>
+    <string name="pref_res_land_sd">Landscape · 800×480</string>
+    <string name="pref_res_land_hd">Landscape · 1280×720 (HD)</string>
+    <string name="pref_res_port_sd">Portrait · 720×1280</string>
+    <string name="pref_res_port_hd">Portrait · 1080×1920 (HD)</string>
+
+    <!-- Privacy / anonymous telemetry -->
+</resources>

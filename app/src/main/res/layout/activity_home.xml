@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/home_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_logo" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/app_name"
+                        android:textColor="@color/text_primary"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/home_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/ivm_cyan"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/home_settings"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="@drawable/bg_tile"
+                android:contentDescription="@string/home_tile_settings"
+                android:src="@drawable/ic_settings"
+                app:tint="@color/text_secondary" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/home_update"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_tile"
+            android:gravity="center"
+            android:padding="12dp"
+            android:text="@string/home_update_banner"
+            android:textColor="@color/ivm_cyan"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/home_alert"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:textColor="@color/status_busy"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/home_nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <TextView
+                android:id="@+id/home_chip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip"
+                android:paddingStart="12dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/status_live"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/home_model"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/text_primary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/home_kind"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/home_parked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:textColor="@color/ivm_cyan"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/home_photo"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:contentDescription="@string/home_title"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.IVMoto.Photo" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/home_connect"
+            style="@style/Widget.IVMoto.Button.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/home_tile_map"
+                style="@style/IVMoto.HomeTile"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="5dp"
+                android:drawableTop="@drawable/ic_place"
+                android:text="@string/home_tile_map" />
+
+            <TextView
+                android:id="@+id/home_tile_places"
+                style="@style/IVMoto.HomeTile"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:drawableTop="@drawable/ic_star"
+                android:text="@string/home_tile_places" />
+
+            <TextView
+                android:id="@+id/home_tile_trips"
+                style="@style/IVMoto.HomeTile"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="0dp"
+                android:drawableTop="@drawable/ic_ride"
+                android:text="@string/home_tile_trips" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/home_tile_maint"
+                style="@style/IVMoto.HomeTile"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="5dp"
+                android:drawableTop="@drawable/ic_wrench"
+                android:text="@string/home_tile_maint" />
+
+            <TextView
+                android:id="@+id/home_tile_fuel"
+                style="@style/IVMoto.HomeTile"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:drawableTop="@drawable/ic_fuel"
+                android:text="@string/home_tile_fuel" />
+
+            <TextView
+                android:id="@+id/home_tile_sos"
+                style="@style/IVMoto.HomeTile"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="0dp"
+                android:drawableTop="@drawable/ic_warning"
+                android:text="@string/home_tile_sos" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/home_change_bike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/home_change_bike"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="·"
+                android:textColor="@color/text_secondary" />
+
+            <TextView
+                android:id="@+id/home_donate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@string/home_donate"
+                android:textColor="@color/ivm_cyan"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/home_created_by"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="6dp"
+            android:text="@string/created_by"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- IVMoto brand: electric blue on a deep navy "cockpit". Legacy names (brand_orange, bg,
+         surface…) are kept so older screens inherit the new palette without edits. -->
+    <color name="brand_orange">#00A0DE</color>
+    <color name="brand_orange_dark">#006C9E</color>
+    <color name="on_brand">#FFFFFF</color>
+
+    <color name="bg">#070E1C</color>
+    <color name="surface">#0F1B33</color>
+    <color name="surface_high">#14264A</color>
+    <color name="outline">#1E3358</color>
+
+    <color name="text_primary">#F2F6FF</color>
+    <color name="text_secondary">#8CA3C7</color>
+
+    <color name="status_live">#34D399</color>
+    <color name="status_busy">#FFB020</color>
+    <color name="status_error">#FF5A52</color>
+    <color name="status_idle">#8CA3C7</color>
+
+    <color name="ivm_blue">#00A0DE</color>
+    <color name="ivm_blue_dark">#006C9E</color>
+    <color name="ivm_cyan">#38E1FF</color>
+    <color name="ivm_glow">#5500A0DE</color>
+</resources>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Draft + terminology pass — improve via PR: docs/TRANSLATIONS.md -->
+<resources>
+    <string name="app_name">IVMoto</string>
+    <string name="about_done">Kész</string>
+    <string name="controls_auto">Automatikus</string>
+    <string name="controls_day">Világos</string>
+    <string name="controls_night">Sötét</string>
+    <string name="controls_home">Kezdőlap</string>
+    <string name="controls_voice">Hang</string>
+    <string name="res_off">Kikapcsolva</string>
+    <string name="gpx_map">Térkép</string>
+    <string name="gpx_ride">Túra</string>
+    <string name="gpx_search">Keresés</string>
+    <string name="gpx_units">Egységek</string>
+    <string name="gpx_metric">Metrikus</string>
+    <string name="gpx_imperial">Angolszász</string>
+    <string name="gpx_on">Bekapcsolva</string>
+    <string name="gpx_dark">Sötét</string>
+    <string name="gpx_black">Fekete</string>
+    <string name="gpx_slate">Palakő</string>
+    <string name="gpx_forest">Erdő</string>
+    <string name="gpx_route_mode">Útvonal mód</string>
+    <string name="gpx_fast">Gyors</string>
+    <string name="gpx_fun">Szórakozás</string>
+    <string name="gpx_circuit">Kör</string>
+    <string name="gpx_avoid_tolls">Útdíjak elkerülése</string>
+    <string name="gpx_avoid_highways">Autópályák elkerülése</string>
+    <string name="gpx_set_home_here">Otthon beállítása itt</string>
+    <string name="hud_hub">Központ</string>
+    <string name="main_stop">Leállítás</string>
+    <string name="main_go">Indítás</string>
+    <string name="setup_auto_day_night">Automatikus (nappal világos / este sötét)</string>
+    <string name="setup_bt_no_bluetooth">Ez a telefon nem rendelkezik Bluetooth-tal.</string>
+    <string name="setup_bt_off">A Bluetooth ki van kapcsolva — kapcsold be, majd párosítsd a motort.</string>
+    <string name="setup_bt_connected">Csatlakozva: %1$s — a kormánygombok és hívások működniük kell.</string>
+    <string name="setup_bt_audio_device">egy hang eszköz</string>
+    <string name="setup_bt_not_connected">Bluetooth bekapcsolva, de még nincs csatlakoztatva a motorhoz. Párosítsd a kormánygombok használatához.</string>
+    <string name="pref_profile_auto">Felismerés a motorról (ajánlott)</string>
+    <string name="pref_profile_legacy">CFDL16 / 450SR-stílusú nem érintőképernyős</string>
+    <string name="pref_profile_nk800">CRCP / sdk 0.9.23.x nem érintőképernyős</string>
+    <string name="pref_profile_nk_adv">CFDL26 érintőképernyős 720×712</string>
+    <string name="pref_profile_cfdl26_land">CFDL26 fekvő érintőképernyős</string>
+    <string name="pref_profile_cfdl26_port">CFDL26 álló (kormány-elsődleges)</string>
+    <string name="pref_profile_clc450">544×512 közel négyzetes</string>
+    <string name="pref_map_theme_day">Nappal (világos)</string>
+    <string name="pref_map_theme_night">Éjjel (sötét)</string>
+    <string name="pref_dbltap_fast">200 ms — gyorsabb egyszeri nyomások</string>
+    <string name="pref_dbltap_normal">300 ms — kiegyensúlyozott (ajánlott)</string>
+    <string name="pref_dbltap_slow">450 ms — elnéző dupla nyomások</string>
+    <string name="pref_dbltap_very_slow">1000 ms — lassú duplák (hosszú fizikai nyomás)</string>
+    <string name="pref_hold_short">500 ms — gyorsabb tartás</string>
+    <string name="pref_hold_normal">600 ms — kiegyensúlyozott (ajánlott)</string>
+    <string name="pref_hold_long">800 ms — szándékos tartás</string>
+    <plurals name="trips_day_summary">
+        <item quantity="one">%1$d túra · %2$.1f km</item>
+        <item quantity="other">%1$d túra · %2$.1f km</item>
+    </plurals>
+    <string name="dashset_settings">Beállítások</string>
+    <string name="dashset_theme">Téma</string>
+    <string name="dashset_next_stop">Következő megálló</string>
+    <string name="dashset_auto_finish">Automatikus befejezés</string>
+    <string name="dashset_chrome">Megjelenés</string>
+    <string name="dashset_3d">3D</string>
+    <string name="dashset_legacy_scenic_length_unused_circuit_is_there_and">Régi panoráma hossz (nem használt — a Kör oda-vissza)</string>
+    <string name="dashset_30">30</string>
+    <string name="dashset_60">60</string>
+    <string name="dashset_100">100</string>
+    <string name="dash_search_here">Keresés itt</string>
+    <string name="dash_next_maneuver">Következő manőver</string>
+    <string name="dash_time">IDŐ</string>
+    <string name="dash_arrive">ÉRKEZÉS</string>
+    <string name="dash_left">HÁTRA</string>
+    <string name="dash_alt_m">ALT m</string>
+    <string name="dash_limit">LIMIT</string>
+    <string name="dash_end">Befejezés</string>
+    <string name="dash_save">★ Mentés</string>
+    <string name="dash_marker">＋ Jelölő</string>
+    <string name="dash_you_ve_arrived">Megérkeztél</string>
+    <string name="dash_mark_this_spot_or_keep_riding">Jelöld meg ezt a helyet, vagy folytasd a vezetést</string>
+    <string name="dash_park_here">Parkolás itt</string>
+    <string name="dash_find_parking">Parkoló keresése</string>
+    <string name="dash_done_free_ride">Kész · szabad vezetés</string>
+    <string name="dash_recenter_gps">GPS középre</string>
+    <string name="dash_zoom_in">Nagyítás</string>
+    <string name="dash_zoom_out">Kicsinyítés</string>
+    <string name="dash_compass">Iránytű</string>
+    <string name="dash_menu">Menü</string>
+    <string name="dash_fit_route">Útvonal illesztése</string>
+    <string name="dash_search_places_or_address">Helyek vagy cím keresése</string>
+    <string name="dash_end_navigation">Navigáció befejezése</string>
+    <string name="dash_go_home">Haza</string>
+    <string name="dash_recenter_recalc">Középre / Újraszámítás</string>
+    <string name="dash_record_ride">Túra rögzítése</string>
+    <string name="dash_follow">Követés</string>
+    <string name="dash_heading_up">Irány felfelé</string>
+    <string name="dash_str">－</string>
+    <string name="dash_str_2">＋</string>
+    <string name="dash_close">Bezárás</string>
+    <string name="dash_cancel">Mégse</string>
+
+    <!-- Connection phases (Main status line) -->
+    <string name="conn_ready">Kész</string>
+    <string name="conn_starting_aa">Android Auto indítása…</string>
+    <string name="conn_aa_video_live">Android Auto élő — csatlakozás a motorhoz…</string>
+    <string name="conn_joining_wifi">Csatlakozás a motor Wi‑Fi-jéhez…</string>
+    <string name="conn_pxc_connecting">Kapcsolódás a műszerfalhoz…</string>
+    <string name="conn_streaming">Csatlakozva — tükrözés a műszerfalra</string>
+    <string name="conn_mirroring">Képernyő tükrözése a műszerfalra</string>
+    <string name="conn_reconnecting">Kapcsolat megszakadt — újracsatlakozás…</string>
+    <string name="conn_waiting_for_bike">Motor hatótávon kívül — várakozás…</string>
+    <string name="conn_stopped">Leállítva</string>
+    <string name="conn_error">Hiba — lásd a naplókat</string>
+    <string name="conn_detail_connect_failed">Csatlakozás sikertelen — lásd a Naplókat / Naplók megosztása</string>
+
+    <!-- MainActivity dynamic / dialogs -->
+
+    <!-- Notifications -->
+    <string name="notif_aa_channel">Android Auto vevő</string>
+    <string name="notif_aa_title">IVMoto — Android Auto</string>
+    <string name="notif_aa_reconnecting">Újracsatlakozás a motor műszerfalához…</string>
+    <string name="notif_aa_receiving">Android Auto fogadása a motor műszerfalához — koppints a megnyitáshoz</string>
+    <string name="notif_bike_reconnected">Motor újracsatlakozott</string>
+    <string name="notif_tap_resume">Koppints a tükrözés folytatásához a műszerfalra</string>
+    <string name="notif_map_title">IVMoto Térkép</string>
+    <string name="notif_map_text">Térkép a műszerfalon — a kormány a gomb-hozzárendelésedet használja</string>
+    <string name="notif_mirror_channel">Képernyő tükrözés</string>
+    <string name="notif_mirror_title">IVMoto</string>
+    <string name="notif_mirror_text">Képernyő tükrözése a motorra</string>
+    <string name="notif_media_channel">Motor gomb vezérlés</string>
+
+    <!-- Setup preference descriptions (enums) -->
+    <string name="pref_vq_smooth">Simább — kevesebb adat/késleltetés</string>
+    <string name="pref_vq_balanced">Kiegyensúlyozott (ajánlott)</string>
+    <string name="pref_vq_sharp">Élesebb — több adat</string>
+    <string name="pref_fit_fill">Kitöltés — széltől szélig (kicsit levág)</string>
+    <string name="pref_fit_fit">Illesztés — nincs levágás (fekete sávok)</string>
+    <string name="pref_fit_stretch">Nyújtás — kitöltés, enyhe torzítás</string>
+    <string name="pref_power_auto">Automatikus — alkalmazkodik hőhöz és jelhez</string>
+    <string name="pref_power_smooth">Sima — 30 fps (legtöbb akku)</string>
+    <string name="pref_power_balanced">Kiegyensúlyozott — 24 fps (ajánlott)</string>
+    <string name="pref_power_saver">Akkumulátor takarékos — 20 fps (leghűvösebb)</string>
+    <string name="pref_res_auto">Automatikus — motor illesztése (ajánlott)</string>
+    <string name="pref_res_land_sd">Fekvő · 800×480</string>
+    <string name="pref_res_land_hd">Fekvő · 1280×720 (HD)</string>
+    <string name="pref_res_port_sd">Álló · 720×1280</string>
+    <string name="pref_res_port_hd">Álló · 1080×1920 (HD)</string>
+
+    <!-- Privacy / anonymous telemetry -->
+</resources>

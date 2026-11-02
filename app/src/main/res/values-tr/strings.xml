@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">IVMoto</string>
+    <string name="about_done">Bitti</string>
+    <string name="controls_auto">Otomatik</string>
+    <string name="controls_day">Gündüz</string>
+    <string name="controls_night">Akşam</string>
+    <string name="controls_home">Ana Ekran</string>
+    <string name="controls_voice">Sesli Komut</string>
+    <string name="res_off">Kapalı</string>
+    <string name="gpx_map">Harita</string>
+    <string name="gpx_ride">Sürüş</string>
+    <string name="gpx_search">Ara</string>
+    <string name="gpx_units">Birimler</string>
+    <string name="gpx_metric">Metrik</string>
+    <string name="gpx_imperial">Imperial</string>
+    <string name="gpx_on">Açık</string>
+    <string name="gpx_dark">Koyu</string>
+    <string name="gpx_black">Siyah</string>
+    <string name="gpx_slate">Antrasit</string>
+    <string name="gpx_forest">Orman Yeşili</string>
+    <string name="gpx_route_mode">Rota modu</string>
+    <string name="gpx_fast">Hızlı</string>
+    <string name="gpx_fun">Eğlenceli</string>
+    <string name="gpx_circuit">Tur (Gidiş-Dönüş)</string>
+    <string name="gpx_avoid_tolls">Ücretli yollardan kaçın</string>
+    <string name="gpx_avoid_highways">Otoyollardan kaçın</string>
+    <string name="gpx_set_home_here">Burayı Ev olarak ayarla</string>
+    <string name="hud_hub">Merkez (Hub)</string>
+    <string name="main_stop">Durdur</string>
+    <string name="main_go">Git</string>
+    <string name="setup_auto_day_night">Otomatik (gündüz / gece)</string>
+    <string name="dashset_settings">Ayarlar</string>
+    <string name="dashset_theme">Tema</string>
+    <string name="dashset_next_stop">Sonraki durak</string>
+    <string name="dashset_auto_finish">Otomatik bitir</string>
+    <string name="dashset_chrome">Ara yüz</string>
+    <string name="dashset_3d">3D</string>
+    <string name="dashset_legacy_scenic_length_unused_circuit_is_there_and">Eski manzaralı yol uzunluğu (kullanılmıyor — Tur gidiş-dönüştür)</string>
+    <string name="dashset_30">30</string>
+    <string name="dashset_60">60</string>
+    <string name="dashset_100">100</string>
+    <string name="dash_search_here">Burada ara</string>
+    <string name="dash_next_maneuver">Sonraki manevra</string>
+    <string name="dash_time">ZAMAN</string>
+    <string name="dash_arrive">VARIŞ</string>
+    <string name="dash_left">KALAN</string>
+    <string name="dash_alt_m">RAKIM m</string>
+    <string name="dash_limit">LİMİT</string>
+    <string name="dash_end">Son</string>
+    <string name="dash_save">★ Kaydet</string>
+    <string name="dash_marker">＋ İşaretçi</string>
+    <string name="dash_you_ve_arrived">Vardın</string>
+    <string name="dash_mark_this_spot_or_keep_riding">Bu noktayı işaretle veya sürmeye devam et</string>
+    <string name="dash_park_here">Buraya park et</string>
+    <string name="dash_find_parking">Park yeri bul</string>
+    <string name="dash_done_free_ride">Bitti · serbest sürüş</string>
+    <string name="dash_recenter_gps">GPS\'i ortala</string>
+    <string name="dash_zoom_in">Yakınlaştır</string>
+    <string name="dash_zoom_out">Uzaklaştır</string>
+    <string name="dash_compass">Pusula</string>
+    <string name="dash_menu">Menü</string>
+    <string name="dash_fit_route">Rotayı sığdır</string>
+    <string name="dash_search_places_or_address">Yer veya adres ara</string>
+    <string name="dash_end_navigation">Navigasyonu bitir</string>
+    <string name="dash_go_home">Eve Git</string>
+    <string name="dash_recenter_recalc">Ortala / Ynd Hesapla</string>
+    <string name="dash_record_ride">Sürüşü kaydet</string>
+    <string name="dash_follow">Takip et</string>
+    <string name="dash_heading_up">Yön yukarı</string>
+    <string name="dash_str">－</string>
+    <string name="dash_str_2">＋</string>
+    <string name="dash_close">Kapat</string>
+    <string name="dash_cancel">İptal</string>
+
+    <!-- Connection phases (Main status line) -->
+    <string name="conn_ready">Hazır</string>
+    <string name="conn_starting_aa">Android Auto başlatılıyor…</string>
+    <string name="conn_aa_video_live">Android Auto yayında — motora bağlanılıyor…</string>
+    <string name="conn_joining_wifi">Motorun Wi-Fi ağına bağlanılıyor…</string>
+    <string name="conn_pxc_connecting">Ekrana bağlanılıyor…</string>
+    <string name="conn_streaming">Bağlandı — ekrana yansıtılıyor</string>
+    <string name="conn_mirroring">Ekran motora yansıtılıyor</string>
+    <string name="conn_reconnecting">Bağlantı koptu — yeniden bağlanılıyor…</string>
+    <string name="conn_waiting_for_bike">Motor menzil dışında — bekleniyor…</string>
+    <string name="conn_stopped">Durduruldu</string>
+    <string name="conn_error">Hata — loglara bak</string>
+    <string name="conn_detail_connect_failed">Bağlantı başarısız — Loglara Bak / Logları Paylaş</string>
+
+    <!-- MainActivity dynamic / dialogs -->
+
+    <!-- Notifications -->
+    <string name="notif_aa_channel">Android Auto alıcısı</string>
+    <string name="notif_aa_title">IVMoto — Android Auto</string>
+    <string name="notif_aa_reconnecting">Motor ekranına yeniden bağlanılıyor…</string>
+    <string name="notif_aa_receiving">Motor ekranı için Android Auto alınıyor — açmak için dokun</string>
+    <string name="notif_bike_reconnected">Motor yeniden bağlandı</string>
+    <string name="notif_tap_resume">Ekrana yansıtmayı sürdürmek için dokun</string>
+    <string name="notif_map_title">IVMoto Haritası</string>
+    <string name="notif_map_text">Harita ekranda — gidon, senin tuş atamalarını kullanır</string>
+    <string name="notif_mirror_channel">Ekran yansıtma</string>
+    <string name="notif_mirror_title">IVMoto</string>
+    <string name="notif_mirror_text">Ekran motora yansıtılıyor</string>
+    <string name="notif_media_channel">Motor tuşu kontrolü</string>
+
+    <!-- Setup preference descriptions (enums) -->
+    <string name="pref_vq_smooth">Daha Akıcı — daha az veri/gecikme</string>
+    <string name="pref_vq_balanced">Dengeli (önerilen)</string>
+    <string name="pref_vq_sharp">Daha Keskin — daha çok veri</string>
+    <string name="pref_fit_fill">Doldur — uçtan uca (biraz kırpar)</string>
+    <string name="pref_fit_fit">Sığdır — kırpma yok (siyah çubuklar)</string>
+    <string name="pref_fit_stretch">Uzat — doldurur, hafif bozulma</string>
+    <string name="pref_power_auto">Otomatik — ısıya &amp; sinyale uyum sağlar</string>
+    <string name="pref_power_smooth">Akıcı — 30 fps (en yüksek pil tüketimi)</string>
+    <string name="pref_power_balanced">Dengeli — 24 fps (önerilen)</string>
+    <string name="pref_power_saver">Pil tasarrufu — 20 fps (en uygun)</string>
+    <string name="pref_res_auto">Otomatik — motosiklet ile eşleştirin (önerilen)</string>
+    <string name="pref_res_land_sd">Yatay · 800×480</string>
+    <string name="pref_res_land_hd">Yatay · 1280×720 (HD)</string>
+    <string name="pref_res_port_sd">Dikey · 720×1280</string>
+    <string name="pref_res_port_hd">Dikey · 1080×1920 (HD)</string>
+
+    <!-- Privacy / anonymous telemetry -->
+</resources>

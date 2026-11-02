@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Draft from sashop2001/APIVMoto — improve via PR: docs/TRANSLATIONS.md -->
+<resources>
+    <string name="app_name">IVMoto</string>
+    <string name="about_done">Готово</string>
+    <string name="controls_auto">Авто</string>
+    <string name="controls_day">Ден</string>
+    <string name="controls_night">Нощ</string>
+    <string name="controls_home">Начало</string>
+    <string name="controls_voice">Глас</string>
+    <string name="res_off">Изключено</string>
+    <string name="gpx_map">Карта</string>
+    <string name="gpx_ride">Каране</string>
+    <string name="gpx_search">Търсене</string>
+    <string name="gpx_units">Мерни единици</string>
+    <string name="gpx_metric">Метрични</string>
+    <string name="gpx_imperial">Имперски</string>
+    <string name="gpx_on">Вкл</string>
+    <string name="gpx_dark">Тъмен</string>
+    <string name="gpx_black">Черен</string>
+    <string name="gpx_slate">Сив (Slate)</string>
+    <string name="gpx_forest">Горски</string>
+    <string name="gpx_route_mode">Режим на маршрута</string>
+    <string name="gpx_fast">Бърз</string>
+    <string name="gpx_fun">Забавен</string>
+    <string name="gpx_circuit">Обиколка</string>
+    <string name="gpx_avoid_tolls">Избягвай такси</string>
+    <string name="gpx_avoid_highways">Избягвай магистрали</string>
+    <string name="gpx_set_home_here">Задай като Начало тук</string>
+    <string name="hud_hub">Хъб</string>
+    <string name="main_stop">Спри</string>
+    <string name="main_go">Тръгни</string>
+    <string name="setup_auto_day_night">Авто (ден / нощ)</string>
+    <string name="setup_bt_no_bluetooth">Този телефон няма Bluetooth.</string>
+    <string name="setup_bt_off">Bluetooth е изключен — включете го, след което сдвоете мотора.</string>
+    <string name="setup_bt_connected">Свързан с %1$s — бутоните на кормилото и обажданията би трябвало да работят.</string>
+    <string name="setup_bt_audio_device">аудио устройство</string>
+    <string name="setup_bt_not_connected">Bluetooth е включен, но все още няма връзка с мотора. Сдвоете го, за да използвате бутоните на кормилото.</string>
+    <string name="pref_profile_auto">Разпознава от мотора (препоръчително)</string>
+    <string name="pref_profile_legacy">CFDL16 / 450SR-стил не-сензорни</string>
+    <string name="pref_profile_nk800">CRCP / sdk 0.9.23.x не-сензорни</string>
+    <string name="pref_profile_nk_adv">CFDL26 сензорен 720×712</string>
+    <string name="pref_profile_cfdl26_land">CFDL26 пейзажен сензорен</string>
+    <string name="pref_profile_cfdl26_port">CFDL26 портретен (предимно кормило)</string>
+    <string name="pref_profile_clc450">544×512 почти квадратен</string>
+    <string name="pref_map_theme_day">Ден (светла)</string>
+    <string name="pref_map_theme_night">Нощ (тъмна)</string>
+    <string name="pref_dbltap_fast">200 ms — по-бързи единични</string>
+    <string name="pref_dbltap_normal">300 ms — балансирано (препоръчително)</string>
+    <string name="pref_dbltap_slow">450 ms — прощаващи двойни</string>
+    <string name="pref_dbltap_very_slow">1000 ms — бавни двойни (дълго физическо натискане)</string>
+    <string name="pref_hold_short">500 ms — по-бързо задържане</string>
+    <string name="pref_hold_normal">600 ms — балансирано (препоръчително)</string>
+    <string name="pref_hold_long">800 ms — умишлено задържане</string>
+    <plurals name="trips_day_summary">
+        <item quantity="one">%1$d каране · %2$.1f км</item>
+        <item quantity="other">%1$d карания · %2$.1f км</item>
+    </plurals>
+    <string name="dashset_settings">Настройки</string>
+    <string name="dashset_theme">Тема</string>
+    <string name="dashset_next_stop">Следваща спирка</string>
+    <string name="dashset_auto_finish">Автоматично приключване</string>
+    <string name="dashset_chrome">Интерфейс</string>
+    <string name="dashset_3d">3D</string>
+    <string name="dashset_legacy_scenic_length_unused_circuit_is_there_and">Стара живописна дължина (не се използва — Обиколка е отиване и връщане)</string>
+    <string name="dashset_30">30</string>
+    <string name="dashset_60">60</string>
+    <string name="dashset_100">100</string>
+    <string name="dash_search_here">Търсене тук</string>
+    <string name="dash_next_maneuver">Следваща маневра</string>
+    <string name="dash_time">ВРЕМЕ</string>
+    <string name="dash_arrive">ПРИСТИГАНЕ</string>
+    <string name="dash_left">ОСТАВАТ</string>
+    <string name="dash_alt_m">НАДМ м</string>
+    <string name="dash_limit">ОГРАН</string>
+    <string name="dash_end">Край</string>
+    <string name="dash_save">★ Запази</string>
+    <string name="dash_marker">＋ Маркер</string>
+    <string name="dash_you_ve_arrived">Вие пристигнахте</string>
+    <string name="dash_mark_this_spot_or_keep_riding">Маркирайте това място или продължете карането</string>
+    <string name="dash_park_here">Паркирай тук</string>
+    <string name="dash_find_parking">Намери паркинг</string>
+    <string name="dash_done_free_ride">Готово · свободно каране</string>
+    <string name="dash_recenter_gps">Центрирай GPS</string>
+    <string name="dash_zoom_in">Увеличи</string>
+    <string name="dash_zoom_out">Намали</string>
+    <string name="dash_compass">Компас</string>
+    <string name="dash_menu">Меню</string>
+    <string name="dash_fit_route">Побиране на маршрута</string>
+    <string name="dash_search_places_or_address">Търсене на места или адрес</string>
+    <string name="dash_end_navigation">Край на навигацията</string>
+    <string name="dash_go_home">Към Начало</string>
+    <string name="dash_recenter_recalc">Центрирай / Преизчисли</string>
+    <string name="dash_record_ride">Запиши каране</string>
+    <string name="dash_follow">Следвай</string>
+    <string name="dash_heading_up">Посоката нагоре</string>
+    <string name="dash_str">－</string>
+    <string name="dash_str_2">＋</string>
+    <string name="dash_close">Затвори</string>
+    <string name="dash_cancel">Отказ</string>
+
+    <!-- Connection phases (Main status line) -->
+    <string name="conn_ready">Готово</string>
+    <string name="conn_starting_aa">Стартиране на Android Auto…</string>
+    <string name="conn_aa_video_live">Android Auto е активен — присъединяване към мотора…</string>
+    <string name="conn_joining_wifi">Свързване към Wi-Fi на мотора…</string>
+    <string name="conn_pxc_connecting">Свързване с таблото…</string>
+    <string name="conn_streaming">Свързано — прожектиране към таблото</string>
+    <string name="conn_mirroring">Огледално предаване на екрана към таблото</string>
+    <string name="conn_reconnecting">Връзката прекъсна — повторно свързване…</string>
+    <string name="conn_waiting_for_bike">Моторът е извън обхват — изчакване…</string>
+    <string name="conn_stopped">Спряно</string>
+    <string name="conn_error">Грешка — вижте логовете</string>
+    <string name="conn_detail_connect_failed">Неуспешно свързване — вижте Логове / Сподели логове</string>
+    <string name="conn_detail_aa_not_started">Android Auto не се прикачи. В Android Auto 17.4+ Google блокира автоматичното стартиране: отворете Android Auto, докоснете Версия 10 пъти, след това ⋮ → Start head unit server и опитайте отново Свързване. SoftAP/Огледален все още доказват Wi‑Fi връзката на мотора.</string>
+    <string name="conn_detail_wifi_picker">Одобрете изскачащия прозорец за Wi‑Fi / избор на устройство на телефона (не го оставяйте отворен), след което се свържете отново</string>
+    <string name="conn_detail_easyconn_offline">Wi‑Fi мрежата на мотора е активна, но EasyConn е офлайн — дръжте екрана за сдвояване с QR кода отворен на таблото</string>
+
+    <!-- MainActivity dynamic / dialogs -->
+    <string name="main_phone_hotspot_dialog_title">Настройка на хотспот от телефона</string>
+    <string name="main_phone_hotspot_dialog_message">Този мотор се свързва към хотспота на вашия телефон (Android не може да създаде този хотспот вместо вас).\n\n1. Въведете SSID и паролата, показани на таблото (само за напомняне).\n2. Отворете настройките за хотспот и задайте точно тези стойности.\n3. Дръжте екрана за сдвояване на таблото отворен — ние чакаме ~45сек. за мотора.</string>
+    <string name="main_phone_hotspot_ssid_hint">SSID на хотспота на таблото</string>
+    <string name="main_phone_hotspot_pwd_hint">Парола за хотспота на таблото</string>
+    <string name="main_phone_hotspot_open_settings">Отвори настройки на хотспота</string>
+    <string name="main_phone_hotspot_ready">Хотспотът е включен — сканиране</string>
+    <string name="main_phone_hotspot_settings_failed">Неуспешно отваряне на настройките на хотспота — отворете ги ръчно</string>
+
+    <!-- Notifications -->
+    <string name="notif_aa_channel">Приемник на Android Auto</string>
+    <string name="notif_aa_title">IVMoto — Android Auto</string>
+    <string name="notif_aa_reconnecting">Повторно свързване към таблото на мотора…</string>
+    <string name="notif_aa_receiving">Получаване на Android Auto за таблото на мотора — докоснете, за да отворите</string>
+    <string name="notif_bike_reconnected">Моторът е свързан отново</string>
+    <string name="notif_tap_resume">Докоснете, за да възобновите прожектирането към таблото</string>
+    <string name="notif_map_title">Карта на IVMoto</string>
+    <string name="notif_map_text">Карта на таблото — кормилото използва зададените от вас бутони</string>
+    <string name="notif_mirror_channel">Огледално предаване на екрана</string>
+    <string name="notif_mirror_title">IVMoto</string>
+    <string name="notif_mirror_text">Огледално предаване на екрана към мотора</string>
+    <string name="notif_media_channel">Управление от бутоните на мотора</string>
+
+    <!-- Setup preference descriptions (enums) -->
+    <string name="pref_vq_smooth">По-плавно — по-малко данни/забавяне</string>
+    <string name="pref_vq_balanced">Балансирано (препоръчително)</string>
+    <string name="pref_vq_sharp">По-отчетливо — повече данни</string>
+    <string name="pref_fit_fill">Запълване — от ръб до ръб (леко изрязва)</string>
+    <string name="pref_fit_fit">Вписване — без изрязване (черни ленти)</string>
+    <string name="pref_fit_stretch">Разтягане — запълва, леко изкривяване</string>
+    <string name="pref_power_auto">Авто — адаптира се към загряването и сигнала</string>
+    <string name="pref_power_smooth">Плавно — 30 fps (най-висока консумация)</string>
+    <string name="pref_power_balanced">Балансирано — 24 fps (препоръчително)</string>
+    <string name="pref_power_saver">Икономично — 20 fps (най-хладно)</string>
+    <string name="pref_res_auto">Авто — съвпадение с вашия мотор (препоръчително)</string>
+    <string name="pref_res_land_sd">Пейзажна · 800×480</string>
+    <string name="pref_res_land_hd">Пейзажна · 1280×720 (HD)</string>
+    <string name="pref_res_port_sd">Портретна · 720×1280</string>
+    <string name="pref_res_port_hd">Портретна · 1080×1920 (HD)</string>
+
+    <!-- Privacy / anonymous telemetry -->
+</resources>

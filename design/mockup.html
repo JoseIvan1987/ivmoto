@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>IVMoto — propuesta de diseño</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070E1C;--card:#0F1B33;--card2:#14264A;--line:#1E3358;--blue:#2F8CFF;--blue2:#0A52B8;--cyan:#38E1FF;--text:#F2F6FF;--mute:#8CA3C7;--ok:#34D399}
+*{box-sizing:border-box;margin:0}
+body{background:#03070F;color:var(--text);font-family:Manrope,system-ui,sans-serif;padding:32px 16px 64px}
+h1{font-family:Unbounded,sans-serif;font-weight:700;text-align:center;font-size:26px}
+h1 b{color:var(--blue)}
+.sub{text-align:center;color:var(--mute);margin:8px 0 36px}
+.row{display:flex;flex-wrap:wrap;gap:36px;justify-content:center;align-items:flex-start}
+figure{display:flex;flex-direction:column;align-items:center;gap:12px}
+figcaption{color:var(--mute);font-size:14px}
+.phone{width:340px;height:700px;border-radius:40px;border:8px solid #1a2540;background:var(--bg);overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(47,140,255,.18)}
+.scr{padding:22px 20px;height:100%;display:flex;flex-direction:column;gap:16px;background:radial-gradient(120% 60% at 50% -10%,rgba(47,140,255,.28),transparent 60%),var(--bg)}
+.top{display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Unbounded;font-weight:700;font-size:17px}.logo b{color:var(--blue)}
+.ico{width:38px;height:38px;border-radius:12px;background:var(--card);border:1px solid var(--line);display:grid;place-items:center;color:var(--mute)}
+.hello{color:var(--mute);font-size:13px}
+.title{font-family:Unbounded;font-weight:500;font-size:22px;line-height:1.2}
+.hero{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:26px;padding:18px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(56,225,255,.25),transparent 65%)}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:5px 10px;border-radius:99px;background:rgba(52,211,153,.14);color:var(--ok)}
+.chip i{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok)}
+.model{font-family:Unbounded;font-size:26px;font-weight:700;margin:12px 0 0}
+.model small{display:block;font-family:Manrope;font-size:13px;color:var(--mute);font-weight:400;margin-top:2px}
+.bike{display:block;margin:6px auto 0;width:100%;height:120px}
+.btn{border:0;border-radius:20px;padding:18px;font:800 17px Manrope;color:#fff;background:linear-gradient(135deg,var(--blue),var(--blue2));box-shadow:0 10px 30px rgba(47,140,255,.45);width:100%;letter-spacing:.3px}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tile{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 8px;text-align:center;font-size:12px;font-weight:600;color:var(--text)}
+.tile svg{display:block;margin:0 auto 6px}
+.foot{margin-top:auto;text-align:center;color:var(--mute);font-size:11px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.m{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:12px;text-align:center}
+.m svg{width:100%;height:56px}
+.m b{display:block;font-family:Unbounded;font-size:13px;margin-top:6px}
+.m span{font-size:11px;color:var(--mute)}
+.m.sel{border:2px solid var(--blue);background:linear-gradient(160deg,var(--card2),var(--card));box-shadow:0 0 24px rgba(47,140,255,.35)}
+.search{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px 14px;color:var(--mute);font-size:14px}
+.dash{width:800px;height:480px;border-radius:28px;border:8px solid #1a2540;overflow:hidden;position:relative;background:radial-gradient(90% 90% at 20% 30%,#10264F,#050B18 70%);box-shadow:0 30px 80px rgba(47,140,255,.2);transform-origin:top left}
+.dwrap{width:100%;display:flex;justify-content:center}
+.dtop{position:absolute;left:28px;right:28px;top:18px;display:flex;justify-content:space-between;color:var(--mute);font-weight:600;font-size:17px}
+.gauge{position:absolute;left:30px;top:62px}
+.spd{position:absolute;left:30px;top:158px;width:330px;text-align:center}
+.spd b{font-family:Unbounded;font-size:110px;font-weight:700;line-height:1;text-shadow:0 0 40px rgba(47,140,255,.7)}
+.spd span{display:block;color:var(--mute);letter-spacing:4px;font-size:15px;margin-top:-4px}
+.map{position:absolute;right:24px;top:62px;width:386px;height:394px;border-radius:26px;background:#0B1730;border:1px solid var(--line);overflow:hidden}
+.turn{position:absolute;left:14px;right:14px;top:14px;background:rgba(7,14,28,.85);border:1px solid var(--line);border-radius:18px;padding:12px 16px;display:flex;gap:14px;align-items:center}
+.turn b{font-family:Unbounded;font-size:26px}
+.turn span{color:var(--mute);font-size:14px;display:block}
+.eta{position:absolute;left:14px;right:14px;bottom:14px;display:flex;gap:10px}
+.eta div{flex:1;background:rgba(7,14,28,.85);border:1px solid var(--line);border-radius:14px;padding:8px 12px;font-size:12px;color:var(--mute)}
+.eta b{display:block;color:var(--text);font-size:19px;font-family:Unbounded}
+.bar{position:absolute;left:30px;bottom:26px;width:330px;display:flex;justify-content:space-between;color:var(--mute);font-size:14px}
+</style>
+</head>
+<body>
+<h1>IV<b>Moto</b></h1>
+<p class="sub">Propuesta de diseño · pantallas del teléfono y tablero de la moto</p>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="moto" viewBox="0 0 300 130"><g fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="58" cy="92" r="30"/><circle cx="242" cy="92" r="30"/><path d="M58 92 L112 52 L168 52 L206 92 M112 52 L96 34 L128 30 M168 52 L196 36 L226 40 L242 92 M130 60 L150 92 L206 92"/><path d="M178 52 L236 52" stroke-width="9"/></g><circle cx="58" cy="92" r="9" fill="currentColor"/><circle cx="242" cy="92" r="9" fill="currentColor"/></symbol>
+</defs></svg>
+
+<div class="row">
+
+<figure>
+<div class="phone"><div class="scr">
+  <div class="top"><div class="logo">IV<b>Moto</b></div><div class="ico">⚙</div></div>
+  <div><div class="hello">Buenas rodadas</div><div class="title">Mi moto</div></div>
+  <div class="hero">
+    <span class="chip"><i></i>Lista para conectar</span>
+    <div class="model">800MT<small>CFMoto · Touring</small></div>
+    <svg class="bike" style="color:#7FB6FF"><use href="#moto"/></svg>
+  </div>
+  <button class="btn">Conectar con mi moto</button>
+  <div class="tiles">
+    <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="2"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Mapa</div>
+    <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="2"><path d="M3 17l6-6 4 4 8-9"/></svg>Viajes</div>
+    <div class="tile"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>Ajustes</div>
+  </div>
+  <div class="foot">Cambiar de moto · Licencias</div>
+</div></div>
+<figcaption>1 · Pantalla principal</figcaption>
+</figure>
+
+<figure>
+<div class="phone"><div class="scr">
+  <div class="top"><div class="ico">‹</div><div class="logo">Elige tu <b>moto</b></div><div style="width:38px"></div></div>
+  <div class="search">Buscar modelo…</div>
+  <div class="grid">
+    <div class="m"><svg style="color:#8CA3C7"><use href="#moto"/></svg><b>450 CL-C</b><span>Cruiser</span></div>
+    <div class="m"><svg style="color:#8CA3C7"><use href="#moto"/></svg><b>675</b><span>SR · NK</span></div>
+    <div class="m"><svg style="color:#8CA3C7"><use href="#moto"/></svg><b>800NK</b><span>Naked</span></div>
+    <div class="m"><svg style="color:#8CA3C7"><use href="#moto"/></svg><b>800NK Adv.</b><span>Naked touch</span></div>
+    <div class="m sel"><svg style="color:#7FB6FF"><use href="#moto"/></svg><b>800MT</b><span>Touring ✓</span></div>
+    <div class="m"><svg style="color:#8CA3C7"><use href="#moto"/></svg><b>1000 MT-X</b><span>Adventure</span></div>
+  </div>
+  <div class="tiles" style="grid-template-columns:1fr"><div class="tile" style="padding:14px">No veo mi modelo · Emparejar con QR</div></div>
+  <button class="btn" style="margin-top:auto">Guardar mi moto</button>
+</div></div>
+<figcaption>2 · Selector “Mi moto”</figcaption>
+</figure>
+
+</div>
+
+<h1 style="margin:56px 0 24px;font-size:20px">Tablero de la moto <b>(modo mapa)</b></h1>
+<div class="dwrap"><div class="dash">
+  <div class="dtop"><span>10:42</span><span>● GPS · 5G</span><span>▮▮▮▯ 82%</span></div>
+  <svg class="gauge" width="330" height="330" viewBox="0 0 330 330" fill="none">
+    <defs><linearGradient id="g" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0A52B8"/><stop offset="1" stop-color="#38E1FF"/></linearGradient></defs>
+    <path d="M60 270 A140 140 0 1 1 270 270" stroke="#17294B" stroke-width="22" stroke-linecap="round"/>
+    <path d="M60 270 A140 140 0 0 1 250 52" stroke="url(#g)" stroke-width="22" stroke-linecap="round"/>
+  </svg>
+  <div class="spd"><b>86</b><span>KM/H</span></div>
+  <div class="bar"><span>Ruta Guanajuato</span><span>Trip 42.8 km</span></div>
+  <div class="map">
+    <svg width="386" height="394" viewBox="0 0 386 394" fill="none">
+      <g stroke="#16284A" stroke-width="2"><path d="M0 90 L386 140M0 230 L386 190M110 0 L150 394M270 0 L230 394"/></g>
+      <path d="M40 394 C90 300 150 330 190 250 C230 170 300 200 330 90" stroke="#1B4FA8" stroke-width="16" stroke-linecap="round"/>
+      <path d="M40 394 C90 300 150 330 190 250 C230 170 300 200 330 90" stroke="#38E1FF" stroke-width="6" stroke-linecap="round"/>
+      <circle cx="190" cy="250" r="16" fill="#2F8CFF" opacity=".3"/><circle cx="190" cy="250" r="8" fill="#fff"/>
+    </svg>
+    <div class="turn"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#38E1FF" stroke-width="2.4" stroke-linecap="round"><path d="M8 20V10a4 4 0 014-4h6M14 2l4 4-4 4"/></svg><div><b>300 m</b><span>Gira a la derecha · Av. Juárez</span></div></div>
+    <div class="eta"><div>Llegada<b>11:08</b></div><div>Restante<b>26 km</b></div><div>Tiempo<b>26 min</b></div></div>
+  </div>
+</div></div>
+<p class="sub" style="margin-top:18px">3 · Tablero (800×480): velocímetro grande, mapa y siguiente giro</p>
+</body>
+</html>
