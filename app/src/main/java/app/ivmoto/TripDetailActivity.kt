@@ -42,6 +42,7 @@ class TripDetailActivity : AppCompatActivity() {
 
     private lateinit var mapView: MapView
     private var trip: Trip? = null
+    private var mapRef: org.maplibre.android.maps.MapLibreMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,19 +66,19 @@ class TripDetailActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.td_title).text = t.dateText()
         findViewById<TextView>(R.id.td_sub).text = t.timeRangeText()
         buildStats(t)
-        findViewById<View>(R.id.td_export).setOnClickListener { exportGpx(t) }
         findViewById<View>(R.id.td_share).setOnClickListener { shareImage(t) }
         findViewById<SpeedChartView>(R.id.td_chart).values = SpeedSeries.resample(SpeedSeries.kmh(t.points), 80)
         findViewById<View>(R.id.td_delete).setOnClickListener { confirmDelete(t) }
 
         mapView.getMapAsync { map ->
-            map.setStyle(Style.Builder().fromUri("https://tiles.openfreemap.org/styles/dark")) { st ->
+            mapRef = map
+            map.setStyle(Style.Builder().fromUri("https://tiles.openfreemap.org/styles/positron")) { st ->
                 val pts = t.points.map { Point.fromLngLat(it.lon, it.lat) }
                 if (pts.size >= 2) {
                     st.addSource(GeoJsonSource(SRC, FeatureCollection.fromFeature(Feature.fromGeometry(LineString.fromLngLats(pts)))))
                     st.addLayer(
                         LineLayer(LAYER, SRC).withProperties(
-                            lineColor("#38E1FF"), lineWidth(5f),
+                            lineColor("#00A0DE"), lineWidth(5f),
                             lineCap(Property.LINE_CAP_ROUND), lineJoin(Property.LINE_JOIN_ROUND),
                         ),
                     )
@@ -132,31 +133,15 @@ class TripDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun exportGpx(t: Trip) {
-        if (t.points.isEmpty()) {
-            Toast.makeText(this, R.string.td_no_points, Toast.LENGTH_SHORT).show()
-            return
-        }
-        runCatching {
-            val dir = File(cacheDir, "trip-export").apply { mkdirs() }
-            val file = File(dir, TripGpx.suggestedFileName(t))
-            file.writeText(TripGpx.toXml(t), Charsets.UTF_8)
-            val uri = FileProvider.getUriForFile(this, "$packageName.fileprovider", file)
-            val send = Intent(Intent.ACTION_SEND).apply {
-                type = "application/gpx+xml"
-                putExtra(Intent.EXTRA_SUBJECT, file.name)
-                putExtra(Intent.EXTRA_STREAM, uri)
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                clipData = ClipData.newUri(contentResolver, file.name, uri)
-            }
-            startActivity(Intent.createChooser(send, getString(R.string.td_export)))
-        }.onFailure { Toast.makeText(this, R.string.td_export_failed, Toast.LENGTH_LONG).show() }
+    private fun shareImage(t: Trip) {
+        val map = mapRef
+        if (map == null) shareImage(t, null) else map.snapshot { shot -> shareImage(t, shot) }
     }
 
-    private fun shareImage(t: Trip) {
+    private fun shareImage(t: Trip, mapShot: android.graphics.Bitmap?) {
         runCatching {
             val title = Nicknames.get(this, BikeMemory.selected(this)?.raw) ?: getString(R.string.app_name)
-            val bmp = TripShareImage.render(this, t, title)
+            val bmp = TripShareImage.render(this, t, title, mapShot)
             val dir = File(cacheDir, "trip-export").apply { mkdirs() }
             val file = File(dir, "ivmoto-trip-${t.id}.png")
             file.outputStream().use { bmp.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it) }

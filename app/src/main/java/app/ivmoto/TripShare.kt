@@ -83,7 +83,7 @@ class SpeedChartView @JvmOverloads constructor(context: Context, attrs: Attribut
 
 /** Draws a shareable picture of a trip: route, distance, time and speeds. */
 object TripShareImage {
-    fun render(ctx: Context, trip: Trip, title: String): Bitmap {
+    fun render(ctx: Context, trip: Trip, title: String, mapShot: Bitmap? = null): Bitmap {
         val w = 1080
         val h = 1350
         val bmp = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888)
@@ -100,11 +100,23 @@ object TripShareImage {
         c.drawText(title, 210f, 120f, white)
         c.drawText(trip.dateText() + " · " + trip.timeRangeText(), 210f, 170f, muted)
 
-        val route = TripRouteThumb.render(
-            trip, 960, 620,
-            Color.parseColor("#38E1FF"), Color.parseColor("#14264A"), Color.parseColor("#34D399"), Color.parseColor("#FF5A52"),
-        )
-        c.drawBitmap(route, 60f, 250f, null)
+        if (mapShot != null) {
+            // The real map with the route on it, centre-cropped into a rounded box.
+            val box = RectF(60f, 250f, 1020f, 870f)
+            val scale = maxOf(box.width() / mapShot.width, box.height() / mapShot.height)
+            val sw = mapShot.width * scale
+            val sh = mapShot.height * scale
+            val save = c.save()
+            c.clipPath(Path().apply { addRoundRect(box, 32f, 32f, Path.Direction.CW) })
+            c.drawBitmap(mapShot, null, RectF(box.centerX() - sw / 2, box.centerY() - sh / 2, box.centerX() + sw / 2, box.centerY() + sh / 2), Paint(Paint.FILTER_BITMAP_FLAG))
+            c.restoreToCount(save)
+        } else {
+            val route = TripRouteThumb.render(
+                trip, 960, 620,
+                Color.parseColor("#38E1FF"), Color.parseColor("#14264A"), Color.parseColor("#34D399"), Color.parseColor("#FF5A52"),
+            )
+            c.drawBitmap(route, 60f, 250f, null)
+        }
 
         val stats = listOf(
             trip.distanceText() to ctx.getString(R.string.td_distance),

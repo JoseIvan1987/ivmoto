@@ -200,6 +200,14 @@ object BikeWifi {
                 // Join timed out with no live Network — make sure we aren't still pinned to a
                 // previous dead bike AP (resume / auto-connect path).
                 if (currentNetwork == null) unbindProcess()
+                // The very first join never succeeded: stop here instead of re-opening the system
+                // picker every few seconds. The rider taps Connect to try again.
+                if (!firstDelivered) {
+                    active = false
+                    handler.removeCallbacksAndMessages(null)
+                    callback = null
+                    return
+                }
                 if (active) scheduleRejoin()
             }
         }
