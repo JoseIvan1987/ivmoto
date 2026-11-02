@@ -496,4 +496,11 @@
     <string name="st_upd_auto_desc">Una vez al día, al abrir la app</string>
     <string name="st_upd_now">Buscar actualizaciones ahora</string>
     <string name="st_upd_now_desc">Toca para ver si hay una versión nueva</string>
+    <string name="dsa_title">Buscar destino</string>
+    <string name="dsa_hint">Escribe un lugar o dirección</string>
+    <string name="dsa_note">Los resultados salen en la pantalla de la moto. Elige uno ahí.</string>
+    <string name="dsa_none">Primero inicia el tablero de IVMoto en la moto y luego escribe aquí.</string>
+    <string name="dsa_done">Listo</string>
+    <string name="notif_dash_search_channel">Búsqueda en el tablero</string>
+    <string name="notif_dash_search_text">Toca para escribir tu destino</string>
 </resources>

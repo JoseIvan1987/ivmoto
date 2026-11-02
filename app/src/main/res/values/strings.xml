@@ -512,4 +512,11 @@
     <string name="st_upd_auto_desc">Once a day, when you open the app</string>
     <string name="st_upd_now">Check for updates now</string>
     <string name="st_upd_now_desc">Tap to see if there is a newer version</string>
+    <string name="dsa_title">Search for a destination</string>
+    <string name="dsa_hint">Type a place or address</string>
+    <string name="dsa_note">Results show on the bike screen. Tap one there.</string>
+    <string name="dsa_none">Start IVMoto dash on the bike first, then type here.</string>
+    <string name="dsa_done">Done</string>
+    <string name="notif_dash_search_channel">Dash search</string>
+    <string name="notif_dash_search_text">Tap to type your destination</string>
 </resources>

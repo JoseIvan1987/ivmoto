@@ -96,6 +96,7 @@
         <activity android:name=".DonateActivity" android:exported="false" />
         <activity android:name=".TripsActivity" android:exported="false" />
         <activity android:name=".PlacesActivity" android:exported="false" />
+        <activity android:name=".DashSearchActivity" android:exported="false" android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".MaintenanceActivity" android:exported="false" />
         <activity android:name=".FuelActivity" android:exported="false" />
         <activity android:name=".OfflineMapsActivity" android:exported="false" />
