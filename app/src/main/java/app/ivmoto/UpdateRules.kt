@@ -3,6 +3,7 @@
 package app.ivmoto
 
 import org.json.JSONObject
+import java.io.InputStream
 
 /** What the update manifest (latest.json) says about the newest release. */
 data class UpdateManifest(
@@ -19,13 +20,25 @@ object UpdateRules {
 
     /** Parses and validates the manifest; anything incomplete or unsafe (http, bad hash) gives null. */
     fun parse(json: String): UpdateManifest? {
-        val o = runCatching { JSONObject(json) }.getOrNull() ?: return null
+        val o = runCatching { JSONObject(json.removePrefix("\uFEFF").trim()) }.getOrNull() ?: return null
         val code = o.optInt("versionCode", 0)
         val name = o.optString("versionName", "").trim()
         val url = o.optString("apkUrl", "").trim()
         val sha = o.optString("sha256", "").trim()
         if (code <= 0 || name.isEmpty() || !url.startsWith("https://") || !HEX64.matches(sha)) return null
         return UpdateManifest(code, name, url, sha.lowercase(), o.optString("notes", "").take(800))
+    }
+
+    /** Reads at most [max] bytes as UTF-8 text. (InputStream.readNBytes does not exist before Android 13.) */
+    fun readLimited(input: InputStream, max: Int): String {
+        val out = java.io.ByteArrayOutputStream()
+        val buf = ByteArray(8 * 1024)
+        while (out.size() < max) {
+            val n = input.read(buf, 0, minOf(buf.size, max - out.size()))
+            if (n < 0) break
+            out.write(buf, 0, n)
+        }
+        return out.toString(Charsets.UTF_8.name())
     }
 
     fun isNewer(remoteCode: Int, currentCode: Int): Boolean = remoteCode > currentCode

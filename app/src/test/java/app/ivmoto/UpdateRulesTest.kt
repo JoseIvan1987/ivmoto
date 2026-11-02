@@ -68,4 +68,28 @@ class UpdateRulesTest {
         assertTrue(UpdateRules.checkDue(nowMs = day * 2, lastMs = day))
         assertFalse(UpdateRules.checkDue(nowMs = day + 1000, lastMs = day))
     }
+
+    @Test
+    fun a_manifest_saved_with_a_byte_order_mark_is_still_read() {
+        val m = UpdateRules.parse("\uFEFF" + json())
+        assertNotNull(m)
+        assertEquals(2, m!!.versionCode)
+    }
+
+    @Test
+    fun a_bounded_read_returns_a_small_stream_whole() {
+        val text = UpdateRules.readLimited("hola {\"a\": 1}".byteInputStream(), 1024)
+        assertEquals("hola {\"a\": 1}", text)
+    }
+
+    @Test
+    fun a_bounded_read_stops_at_the_limit() {
+        val text = UpdateRules.readLimited("x".repeat(5000).byteInputStream(), 100)
+        assertEquals(100, text.length)
+    }
+
+    @Test
+    fun a_bounded_read_of_nothing_is_empty() {
+        assertEquals("", UpdateRules.readLimited(ByteArray(0).inputStream(), 100))
+    }
 }

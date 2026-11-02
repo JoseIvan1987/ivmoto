@@ -53,6 +53,7 @@ object AppUpdater {
         val text = fetchText(MANIFEST_URL) ?: return Check.Failed
         p.edit().putLong("last", System.currentTimeMillis()).apply()
         val m = UpdateRules.parse(text)
+        if (m == null) LogBus.log("[UPDATE] the manifest is not valid")
         if (m == null || !UpdateRules.isNewer(m.versionCode, BuildConfig.VERSION_CODE)) {
             p.edit().remove("pending").apply()
             return if (m == null) Check.Failed else Check.UpToDate
@@ -61,14 +62,22 @@ object AppUpdater {
         return Check.Available(m)
     }
 
-    private fun fetchText(url: String): String? = runCatching {
+    private fun fetchText(url: String): String? = try {
         val conn = AppHttp.openUrl(url).apply { connectTimeout = 10_000; readTimeout = 10_000 }
         try {
-            if (conn.responseCode != 200) null else conn.inputStream.use { it.readNBytes(64 * 1024).toString(Charsets.UTF_8) }
+            if (conn.responseCode != 200) {
+                LogBus.log("[UPDATE] manifest answered HTTP ${conn.responseCode}")
+                null
+            } else {
+                conn.inputStream.use { UpdateRules.readLimited(it, 64 * 1024) }
+            }
         } finally {
             conn.disconnect()
         }
-    }.getOrNull()
+    } catch (t: Throwable) {
+        LogBus.log("[UPDATE] could not read the manifest: $t")
+        null
+    }
 
     /** Blocking: downloads and verifies the APK. [onProgress] gets 0..100. */
     fun download(ctx: Context, m: UpdateManifest, onProgress: (Int) -> Unit): Download {
