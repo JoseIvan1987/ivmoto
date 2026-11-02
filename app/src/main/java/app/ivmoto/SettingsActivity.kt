@@ -121,9 +121,6 @@ class SettingsActivity : AppCompatActivity() {
         link(R.string.st_upd_now, R.string.st_upd_now_desc) { UpdateFlow.checkManually(this) }
 
         section(R.string.st_sec_help)
-        toggle(R.string.st_secrets, R.string.st_secrets_desc,
-            { AppSettings.includeSecretsInLogs(this) }, { AppSettings.setIncludeSecretsInLogs(this, it) })
-        link(R.string.diag_title, R.string.st_diag_desc) { DiagnosticsActivity.start(this) }
         link(R.string.st_about, R.string.st_about_desc) { LicensesActivity.start(this) }
     }
 

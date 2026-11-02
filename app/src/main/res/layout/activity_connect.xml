@@ -171,21 +171,6 @@
                     android:textColor="@color/text_secondary"
                     android:textSize="13sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="·"
-                    android:textColor="@color/text_secondary" />
-
-                <TextView
-                    android:id="@+id/connect_diag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="12dp"
-                    android:singleLine="true"
-                    android:text="@string/diag_title"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

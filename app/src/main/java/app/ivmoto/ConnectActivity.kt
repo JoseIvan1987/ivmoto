@@ -87,7 +87,6 @@ class ConnectActivity : AppCompatActivity() {
         findViewById<View>(R.id.connect_guide).setOnClickListener {
             startActivity(Intent(this, PrepareActivity::class.java))
         }
-        findViewById<View>(R.id.connect_diag).setOnClickListener { DiagnosticsActivity.start(this) }
         primary.setOnClickListener { onPrimary() }
 
         ConnectionState.listener = { phase, d -> runOnUiThread { render(phase, d) } }

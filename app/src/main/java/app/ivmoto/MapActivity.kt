@@ -151,7 +151,7 @@ class MapActivity : AppCompatActivity() {
                 st.addSource(GeoJsonSource(SRC_POINTS))
                 st.addLayer(
                     LineLayer(LAYER_ROUTE, SRC_ROUTE).withProperties(
-                        lineColor("#38E1FF"), lineWidth(6f),
+                        lineColor("#00A0DE"), lineWidth(6f),
                         lineCap(Property.LINE_CAP_ROUND), lineJoin(Property.LINE_JOIN_ROUND),
                     ),
                 )
@@ -403,7 +403,7 @@ class MapActivity : AppCompatActivity() {
     }
 
     companion object {
-        private const val STYLE_URL = "https://tiles.openfreemap.org/styles/dark"
+        private const val STYLE_URL = "https://tiles.openfreemap.org/styles/positron"
         private const val MIN_OFFLINE_ZOOM = 6
         private const val DEFAULT_LAT = 23.6
         private const val DEFAULT_LON = -102.5
