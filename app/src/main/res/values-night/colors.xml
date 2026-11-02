@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#070E1C</color>
+    <color name="surface">#0F1B33</color>
+    <color name="surface_high">#14264A</color>
+    <color name="outline">#1E3358</color>
+    <color name="bg_glow">#0A3550</color>
+    <color name="chip_bg">#22FFFFFF</color>
+    <color name="sheet_bg">#F20A1426</color>
+    <color name="bar_bg">#F20F1B33</color>
+
+    <color name="text_primary">#F2F6FF</color>
+    <color name="text_secondary">#8CA3C7</color>
+</resources>

@@ -21,6 +21,7 @@ class IVMotoApp : Application() {
             LogBus.includeSecrets = AppSettings.includeSecretsInLogs(this)
         } catch (_: Exception) {
         }
+        AppSettings.applyTheme(this)
         CrashGuard.install(this)
         CrashGuard.hydrateLogBus(this)
         try {

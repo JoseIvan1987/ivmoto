@@ -34,7 +34,8 @@ Gratis, sin anuncios y sin rastreo. Creada por IVSoftware.
 **Apoyo y cuidado**
 - Donaciones (PayPal y Mercado Pago, con QR).
 - Sugerencias y reporte de problemas por correo; los datos técnicos solo se envían si tú envías el reporte.
-- Actualizaciones desde GitHub: se descargan, se verifican (hash y firma) y tú confirmas la instalación.
+- Actualizaciones automáticas desde GitHub (una vez al día, siempre activas): se descargan, se verifican (hash y firma) y tú confirmas la instalación.
+- Tema claro (predeterminado), oscuro o automático.
 
 ## Lo que se puede hacer después
 

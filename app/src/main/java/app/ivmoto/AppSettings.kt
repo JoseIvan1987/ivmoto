@@ -120,6 +120,22 @@ object AppSettings {
      * Stay associated to the bike SoftAP / Wi-Fi Direct after Stop so some dashes keep the clock.
      * Process is unbound so cellular/maps still work. Off by default.
      */
+    /** App look: "light" (default), "dark" or "auto" (follow the phone). */
+    fun theme(ctx: Context): String = prefs(ctx).getString("theme", "light") ?: "light"
+    fun setTheme(ctx: Context, v: String) {
+        prefs(ctx).edit().putString("theme", v).apply()
+        applyTheme(ctx)
+    }
+    fun applyTheme(ctx: Context) {
+        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(
+            when (theme(ctx)) {
+                "dark" -> androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_YES
+                "auto" -> androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
+                else -> androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_NO
+            },
+        )
+    }
+
     /** Catalog model the rider picked on "Mi moto" (see [BikeCatalog]); personalization only. */
     fun selectedModelId(ctx: Context): String? = prefs(ctx).getString(KEY_MODEL_ID, null)
     fun setSelectedModelId(ctx: Context, id: String?) {

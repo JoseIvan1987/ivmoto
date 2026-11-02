@@ -115,9 +115,15 @@ class SettingsActivity : AppCompatActivity() {
             listOf(60, 80, 100, 120).map { v -> Opt("$v km/h", SpeedAlert.limit(this) == v) { SpeedAlert.setLimit(this, v) } },
         )
 
+        section(R.string.st_sec_look)
+        choice(
+            R.string.st_theme, R.string.st_theme_desc,
+            listOf("light" to R.string.st_theme_light, "dark" to R.string.st_theme_dark, "auto" to R.string.st_theme_auto).map { (v, label) ->
+                Opt(getString(label), AppSettings.theme(this) == v) { AppSettings.setTheme(this, v); recreate() }
+            },
+        )
+
         section(R.string.st_sec_updates)
-        toggle(R.string.st_upd_auto, R.string.st_upd_auto_desc,
-            { AppUpdater.autoEnabled(this) }, { AppUpdater.setAuto(this, it) })
         link(R.string.st_upd_now, R.string.st_upd_now_desc) { UpdateFlow.checkManually(this) }
 
         section(R.string.st_sec_help)

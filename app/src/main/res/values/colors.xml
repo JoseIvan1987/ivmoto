@@ -9,13 +9,18 @@
     <color name="brand_orange_dark">#006C9E</color>
     <color name="on_brand">#FFFFFF</color>
 
-    <color name="bg">#070E1C</color>
-    <color name="surface">#0F1B33</color>
-    <color name="surface_high">#14264A</color>
-    <color name="outline">#1E3358</color>
+    <!-- Light by default; values-night/colors.xml holds the dark "cockpit" palette. -->
+    <color name="bg">#F4F7FB</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_high">#E6EEF7</color>
+    <color name="outline">#CBD7E6</color>
+    <color name="bg_glow">#D3EAF7</color>
+    <color name="chip_bg">#1A0F1B33</color>
+    <color name="sheet_bg">#F2FFFFFF</color>
+    <color name="bar_bg">#F2FFFFFF</color>
 
-    <color name="text_primary">#F2F6FF</color>
-    <color name="text_secondary">#8CA3C7</color>
+    <color name="text_primary">#0F1B33</color>
+    <color name="text_secondary">#5B6F8F</color>
 
     <color name="status_live">#34D399</color>
     <color name="status_busy">#FFB020</color>

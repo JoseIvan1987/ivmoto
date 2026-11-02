@@ -15,5 +15,5 @@ Cámara (leer el QR de la moto), ubicación (Wi‑Fi y bitácora de viajes), Wi�
 ## Actualizaciones
 Una vez al día, al abrir la app, IVMoto pide a GitHub (github.com/JoseIvan1987/ivmoto) un archivo pequeño que dice cuál es la
 última versión. Esa petición no lleva tu nombre ni tu ubicación; el servidor ve, como en cualquier página web,
-tu dirección IP y la versión de la app. Puedes apagarlo en **Ajustes > Actualizaciones**. Para instalar una
+tu dirección IP y la versión de la app. Para instalar una
 actualización la app descarga el APK, comprueba su verificación y su firma, y Android te pide confirmar.

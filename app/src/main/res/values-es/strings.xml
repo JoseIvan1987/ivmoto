@@ -503,4 +503,10 @@
     <string name="dsa_done">Listo</string>
     <string name="notif_dash_search_channel">Búsqueda en el tablero</string>
     <string name="notif_dash_search_text">Toca para escribir tu destino</string>
+    <string name="st_sec_look">Apariencia</string>
+    <string name="st_theme">Tema</string>
+    <string name="st_theme_desc">Claro es el predeterminado</string>
+    <string name="st_theme_light">Claro</string>
+    <string name="st_theme_dark">Oscuro</string>
+    <string name="st_theme_auto">Automático</string>
 </resources>
