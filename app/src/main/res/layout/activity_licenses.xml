@@ -84,6 +84,18 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/about_credit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="14dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/about_credit"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"

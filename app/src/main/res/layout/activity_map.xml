@@ -76,6 +76,33 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/map_share"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="342dp"
+        android:background="@drawable/bg_search_bar"
+        android:contentDescription="@string/map_share_hint"
+        android:gravity="center"
+        android:text="➤"
+        android:textColor="@color/ivm_cyan"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/map_fuel"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="278dp"
+        android:background="@drawable/bg_search_bar"
+        android:contentDescription="@string/map_fuel_title"
+        android:gravity="center"
+        android:text="⛽"
+        android:textSize="22sp" />
+
+    <TextView
         android:id="@+id/map_offline"
         android:layout_width="wrap_content"
         android:layout_height="52dp"

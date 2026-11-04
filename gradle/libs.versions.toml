@@ -8,10 +8,9 @@ appcompat = "1.7.1"
 material = "1.14.0"
 activityKtx = "1.13.0"
 constraintlayout = "2.2.1"
-mlkit = "17.3.0"
 camerax = "1.4.1"
 jmdns = "3.5.9"
-protobuf = "3.25.1"
+protobuf = "3.25.5"
 conscrypt = "2.5.3"
 osmdroid = "6.1.20"
 maplibre = "13.3.1"
@@ -23,7 +22,6 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "j
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
-mlkit-barcodescanner = { group = "com.google.mlkit", name = "barcode-scanning", version.ref = "mlkit" }
 androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camerax" }
 androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
 androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }

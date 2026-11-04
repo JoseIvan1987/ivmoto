@@ -148,6 +148,7 @@ object MapPrefs {
         mode = routeMode(ctx),
         avoidTolls = avoidTolls(ctx),
         avoidHighways = avoidHighways(ctx),
+        avoidUnpaved = RideSettings.avoidDirt(ctx),
         maxAlternatives = 4,
         circuitKm = funCircuitKm(ctx),
     )
@@ -158,9 +159,10 @@ data class RouteOptions(
     val mode: RouteMode = RouteMode.FAST,
     val avoidTolls: Boolean = false,
     val avoidHighways: Boolean = false,
+    val avoidUnpaved: Boolean = false,
     /** Extra alternatives beyond the primary (OSRM `alternatives=N` → up to N+1 total). */
     val maxAlternatives: Int = 4,
     val circuitKm: Int = 60,
 ) {
-    val wantsAvoids: Boolean get() = avoidTolls || avoidHighways
+    val wantsAvoids: Boolean get() = avoidTolls || avoidHighways || avoidUnpaved
 }

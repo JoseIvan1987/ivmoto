@@ -36,8 +36,11 @@ object AppUpdater {
     private fun prefs(ctx: Context) = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
 
 
+    fun autoEnabled(ctx: Context) = prefs(ctx).getBoolean("auto", true)
+    fun setAuto(ctx: Context, on: Boolean) = prefs(ctx).edit().putBoolean("auto", on).apply()
+
     fun shouldCheck(ctx: Context) =
-        UpdateRules.checkDue(System.currentTimeMillis(), prefs(ctx).getLong("last", 0L))
+        autoEnabled(ctx) && UpdateRules.checkDue(System.currentTimeMillis(), prefs(ctx).getLong("last", 0L))
 
     /** The newest release found by the last check, if it is newer than this install. */
     fun pending(ctx: Context): UpdateManifest? {

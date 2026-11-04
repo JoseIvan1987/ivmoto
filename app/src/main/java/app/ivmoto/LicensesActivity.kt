@@ -29,6 +29,9 @@ class LicensesActivity : AppCompatActivity() {
         findViewById<android.view.View>(R.id.about_suggest).setOnClickListener { Feedback.suggestion(this) }
         findViewById<android.view.View>(R.id.about_report).setOnClickListener { Feedback.problem(this) }
         AppLinks.linkCredit(findViewById(R.id.about_created_by))
+        findViewById<TextView>(R.id.about_credit).setOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW, android.net.Uri.parse("https://github.com/zanderp/open-cfmoto")))
+        }
     }
 
     companion object {

@@ -53,7 +53,11 @@ class MaintenanceActivity : ListScreenActivity() {
             .setTitle(taskName(t))
             .setItems(arrayOf(getString(R.string.maint_done), getString(R.string.maint_interval), getString(R.string.maint_remove))) { _, i ->
                 when (i) {
-                    0 -> { MaintenanceStore.markDone(this, t.id); rebuild() }
+                    0 -> FormDialog.show(this, getString(R.string.maint_cost_title), listOf(FormDialog.Field(getString(R.string.maint_cost_hint), "", decimal = true))) { v ->
+                        MaintLogStore.add(this, MaintLogEntry(t.id, taskName(t), Odometer.currentKm(this), v[0].toDoubleOrNull() ?: 0.0, System.currentTimeMillis()))
+                        MaintenanceStore.markDone(this, t.id)
+                        rebuild()
+                    }
                     1 -> FormDialog.show(this, taskName(t), listOf(FormDialog.Field(getString(R.string.maint_km_hint), t.intervalKm.toString(), number = true))) { v ->
                         v[0].toIntOrNull()?.let { MaintenanceStore.setInterval(this, t.id, it); rebuild() }
                     }

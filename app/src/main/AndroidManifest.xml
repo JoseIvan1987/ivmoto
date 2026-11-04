@@ -86,7 +86,6 @@
         <activity android:name=".LicensesActivity" android:exported="false" />
         <activity android:name=".ConnectActivity" android:exported="false" android:launchMode="singleTop" />
         <activity android:name=".ScanActivity" android:exported="false" />
-        <activity android:name=".DiagnosticsActivity" android:exported="false" />
         <activity android:name=".SettingsActivity" android:exported="false" />
         <activity android:name=".MapActivity" android:exported="false" />
         <activity android:name=".PrepareActivity" android:exported="false" />
@@ -99,6 +98,7 @@
         <activity android:name=".DashSearchActivity" android:exported="false" android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity android:name=".MaintenanceActivity" android:exported="false" />
         <activity android:name=".FuelActivity" android:exported="false" />
+        <activity android:name=".ExpensesActivity" android:exported="false" />
         <activity android:name=".OfflineMapsActivity" android:exported="false" />
         <activity android:name=".EmergencyActivity" android:exported="false" />
         <receiver android:name=".UpdateInstallReceiver" android:exported="false" />
@@ -119,9 +119,6 @@
             android:name=".AndroidAutoService"
             android:exported="false"
             android:foregroundServiceType="connectedDevice|location|microphone" />
-        <meta-data
-            android:name="com.google.mlkit.vision.DEPENDENCIES"
-            android:value="barcode" />
         <receiver
             android:name=".BtConnectTrigger"
             android:exported="true">

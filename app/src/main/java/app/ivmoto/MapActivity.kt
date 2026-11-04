@@ -57,6 +57,7 @@ class MapActivity : AppCompatActivity() {
     private var style: Style? = null
     private var here: Location? = null
     private var centeredOnce = false
+    private var autoFuel = false
 
     private lateinit var search: EditText
     private lateinit var results: LinearLayout
@@ -82,6 +83,10 @@ class MapActivity : AppCompatActivity() {
         here = loc
         pushMarkers()
         maybeCenter()
+        if (autoFuel) {
+            autoFuel = false
+            showFuelStations()
+        }
     }
 
     private fun maybeCenter() {
@@ -109,6 +114,13 @@ class MapActivity : AppCompatActivity() {
         findViewById<View>(R.id.map_back).setOnClickListener { finish() }
         findViewById<View>(R.id.map_sheet_save).setOnClickListener { saveDestination() }
         findViewById<View>(R.id.map_offline).setOnClickListener { offerOfflineDownload() }
+        findViewById<View>(R.id.map_fuel).setOnClickListener { showFuelStations() }
+        findViewById<View>(R.id.map_share).setOnClickListener {
+            val h = here
+            if (h == null) Toast.makeText(this, R.string.share_location_wait, Toast.LENGTH_SHORT).show()
+            else LiveShare.share(this, h.latitude, h.longitude, if (h.hasAccuracy()) h.accuracy else null)
+        }
+        autoFuel = intent.getBooleanExtra(EXTRA_FUEL, false)
         findViewById<View>(R.id.map_sheet_dash).setOnClickListener {
             destination?.let { ConnectActivity.startDash(this, it) }
         }
@@ -236,6 +248,46 @@ class MapActivity : AppCompatActivity() {
         return v
     }
 
+    private fun showFuelStations() {
+        val h = here
+        if (h == null) {
+            Toast.makeText(this, R.string.share_location_wait, Toast.LENGTH_SHORT).show()
+            return
+        }
+        OverpassClient.nearbyByTagAsync(
+            "amenity=fuel", h.latitude, h.longitude,
+            onResult = { list ->
+                runOnUiThread {
+                    if (list.isEmpty()) Toast.makeText(this, R.string.map_fuel_none, Toast.LENGTH_LONG).show()
+                    else showResults(list.take(8).map { it.copy(name = it.name.ifBlank { getString(R.string.map_fuel_title) }) })
+                }
+            },
+            onError = { runOnUiThread { Toast.makeText(this, R.string.map_search_failed, Toast.LENGTH_SHORT).show() } },
+        )
+    }
+
+    /** Rain and wind at a few points along the route, from Open-Meteo. */
+    private fun loadRouteWeather(route: OsrmRouter.Route, baseInfo: String) {
+        if (route.points.size < 2) return
+        val n = 5
+        val idx = (0 until n).map { (it * (route.points.size - 1)) / (n - 1) }
+        val eta = (0 until n).map { ((route.durationSec * it / (n - 1)) / 3600.0).roundToInt() }
+        Thread {
+            val line = runCatching {
+                val f = RouteWeather.fetch(idx.map { route.points[it].lat }, idx.map { route.points[it].lon })
+                if (f.isEmpty()) null else RouteWeather.summarize(f, eta)
+            }.getOrNull()?.let { w ->
+                when {
+                    w.warnRain && w.warnWind -> getString(R.string.weather_both, w.maxRainPct, w.maxGustKmh.roundToInt())
+                    w.warnRain -> getString(R.string.weather_rain, w.maxRainPct)
+                    w.warnWind -> getString(R.string.weather_wind, w.maxGustKmh.roundToInt())
+                    else -> getString(R.string.weather_ok)
+                }
+            }
+            if (line != null) runOnUiThread { if (destination != null) sheetInfo.text = baseInfo + "\n" + line }
+        }.start()
+    }
+
     private fun choose(place: MapPlace) {
         results.removeAllViews()
         destination = place
@@ -259,7 +311,9 @@ class MapActivity : AppCompatActivity() {
     private fun showRoute(route: OsrmRouter.Route) {
         val km = route.distanceM / 1000.0
         val min = (route.durationSec / 60.0).roundToInt()
-        sheetInfo.text = getString(R.string.map_route_info, "%.1f".format(km), formatMinutes(min))
+        val info = getString(R.string.map_route_info, "%.1f".format(km), formatMinutes(min))
+        sheetInfo.text = info
+        loadRouteWeather(route, info)
         val pts = route.points.map { Point.fromLngLat(it.lon, it.lat) }
         (style?.getSource(SRC_ROUTE) as? GeoJsonSource)
             ?.setGeoJson(FeatureCollection.fromFeature(Feature.fromGeometry(LineString.fromLngLats(pts))))
@@ -415,10 +469,16 @@ class MapActivity : AppCompatActivity() {
 
         private const val EXTRA_NAME = "dest_name"
         private const val EXTRA_LAT = "dest_lat"
+        private const val EXTRA_FUEL = "show_fuel"
         private const val EXTRA_LON = "dest_lon"
 
         fun start(ctx: Context) {
             ctx.startActivity(Intent(ctx, MapActivity::class.java))
+        }
+
+        /** Open the map listing the fuel stations closest to the rider. */
+        fun startFuel(ctx: Context) {
+            ctx.startActivity(Intent(ctx, MapActivity::class.java).putExtra(EXTRA_FUEL, true))
         }
 
         /** Open the map already routing to a place (saved place, parking spot…). */

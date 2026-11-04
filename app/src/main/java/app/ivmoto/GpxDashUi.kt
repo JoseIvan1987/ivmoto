@@ -108,6 +108,8 @@ class GpxDashUi(
         var lastLoc: Location? = null
         var osrmRequested = false
         var lastSpeedFetchMs = 0L
+        var lastCurveWarnMs = 0L
+        var curveBannerUntilMs = 0L
         var offRouteSinceMs = 0L
         var lastAutoRerouteMs = 0L
         val statusColorNormal = 0xFFC8D0D8.toInt()
@@ -2326,6 +2328,15 @@ class GpxDashUi(
                             if (!isAlive() || released) return@post
                             val label = OverpassClient.formatLimit(lim, units)
                             wLimit.text = label
+                            if (RideSettings.roadLimit(context)) {
+                                lim.kmh?.let { limit ->
+                                    val ridingKmh = (lastLoc?.speed ?: 0f) * 3.6f
+                                    if (ridingKmh > limit + 5) {
+                                        if (voiceOn) runCatching { voiceLocal.speak(context.getString(R.string.road_limit_over, limit)) }
+                                        SpeedAlert.checkAgainst(context, limit + 5, ridingKmh.toInt())
+                                    }
+                                }
+                            }
                             // EU-style round sign: just the number (no yellow "LIMIT" text).
                             if (label.isNotBlank() && label != "—") {
                                 chipLimit.visibility = View.VISIBLE
@@ -2354,6 +2365,16 @@ class GpxDashUi(
                         "${GpxNav.formatSpeed(speedKmh, units)} ${GpxNav.speedUnitLabel(units)} · " +
                             "free ride · avg ${GpxNav.formatSpeed(rideStats.avgKmh(), units)}"
                 }
+                if (RideSettings.curves(context) && nav != null && prog != null && speedKmh > 25f && now - lastCurveWarnMs > 25_000L) {
+                    val curve = nav.curveAhead(prog.nearestIndex, maxOf(150.0, loc.speed * 8.0))
+                    if (curve != null) {
+                        lastCurveWarnMs = now
+                        curveBannerUntilMs = now + 6_000L
+                        if (voiceOn) runCatching { voiceLocal.speak(context.getString(R.string.curve_ahead)) }
+                        RideAlerts.buzz(context, 250)
+                    }
+                }
+                if (now < curveBannerUntilMs) statusView.text = "⚠ " + context.getString(R.string.curve_ahead) + "  ·  " + statusView.text
                 applyProgress(prog, speedKmh, loc)
                 // Auto-reroute: sustained off-route in NAV_TO recalculates from the current spot.
                 if (liveMode == GpxSession.Mode.NAV_TO && dest != null && prog != null) {

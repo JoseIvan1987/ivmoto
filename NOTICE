@@ -5,11 +5,13 @@ IVMoto es un derivado de OpenCfMoto (https://github.com/zanderp/open-cfmoto),
 publicado bajo la misma licencia GNU AGPL v3 o posterior. Se conservan los
 avisos de copyright y atribución originales en cada archivo fuente.
 
-Cambios de IVMoto respecto al original: nuevo nombre, logo y paquete
-(app.ivmoto); eliminada toda telemetría y reportes de fallos hacia servidores
-externos; revisión de actualizaciones desactivada hasta configurar el
-repositorio oficial de IVMoto; respaldo en la nube de Android desactivado;
-enlaces de donación, Discord y sitio del autor original ocultos.
+Cambios de IVMoto respecto al original: rediseño completo de la interfaz para
+una mejor experiencia; nuevo nombre, logo y paquete (app.ivmoto); sin
+telemetría ni reportes de fallos hacia servidores externos (el lector de QR
+funciona sin servicios de Google); revisión de actualizaciones desde las
+versiones publicadas de IVMoto, con verificación de firma; respaldo en la nube
+de Android desactivado; el puerto local de Android Auto solo acepta conexiones
+del propio teléfono.
 
 --------------------------------------------------------------------------------
 

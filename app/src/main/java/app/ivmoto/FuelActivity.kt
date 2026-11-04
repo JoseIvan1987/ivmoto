@@ -25,6 +25,19 @@ class FuelActivity : ListScreenActivity() {
         } else {
             card(getString(R.string.home_tile_fuel), getString(R.string.fuel_need_more))
         }
+        val tank = RideSettings.tankLiters(this)
+        card(
+            getString(R.string.fuel_tank_card),
+            if (tank > 0) getString(R.string.fuel_tank_set, String.format(Locale.getDefault(), "%.1f", tank)) else getString(R.string.fuel_tank_none),
+        ).setOnClickListener { editTank(tank) }
+        val lastOdo = entries.mapNotNull { it.odometerKm }.maxOrNull()
+        if (summary != null && lastOdo != null) {
+            FuelRange.remainingKm(tank, summary.kmPerLiter, Odometer.currentKm(this) - lastOdo)?.let { range ->
+                card(getString(R.string.fuel_range_title, range.toInt()), getString(R.string.fuel_range_desc),
+                    if (range < 60) R.color.status_error else R.color.ivm_cyan)
+            }
+        }
+        card(getString(R.string.fuel_stations), getString(R.string.fuel_stations_desc)).setOnClickListener { MapActivity.startFuel(this) }
         card(getString(R.string.fuel_add), getString(R.string.fuel_add_desc)).setOnClickListener { addEntry() }
         val date = DateFormat.getDateInstance(DateFormat.MEDIUM)
         entries.forEach { e ->
@@ -54,6 +67,13 @@ class FuelActivity : ListScreenActivity() {
                 FuelStore.add(this, liters, price, v[2].toDoubleOrNull())
                 rebuild()
             }
+        }
+    }
+
+    private fun editTank(current: Double) {
+        FormDialog.show(this, getString(R.string.fuel_tank_card),
+            listOf(FormDialog.Field(getString(R.string.fuel_tank_hint), if (current > 0) current.toString() else "", decimal = true))) { v ->
+            v[0].toDoubleOrNull()?.takeIf { it > 0 }?.let { RideSettings.setTankLiters(this, it); rebuild() }
         }
     }
 

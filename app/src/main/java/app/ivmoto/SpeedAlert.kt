@@ -29,18 +29,16 @@ object SpeedAlert {
 
     /** Called with every new speed reading of a recording trip. */
     fun check(ctx: Context, speedKmh: Int) {
+        if (!enabled(ctx)) return
+        checkAgainst(ctx, limit(ctx), speedKmh)
+    }
+
+    /** Beep and buzz when [speedKmh] is over [limitKmh], at most once every 15 s. */
+    fun checkAgainst(ctx: Context, limitKmh: Int, speedKmh: Int) {
         val now = System.currentTimeMillis()
-        if (!shouldAlert(enabled(ctx), limit(ctx), speedKmh, now, lastAlertMs)) return
+        if (!shouldAlert(true, limitKmh, speedKmh, now, lastAlertMs)) return
         lastAlertMs = now
         runCatching { ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100).startTone(ToneGenerator.TONE_PROP_BEEP2, 400) }
-        runCatching {
-            val vibrator: Vibrator? = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                (ctx.getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as? VibratorManager)?.defaultVibrator
-            } else {
-                @Suppress("DEPRECATION")
-                ctx.getSystemService(Context.VIBRATOR_SERVICE) as? Vibrator
-            }
-            vibrator?.vibrate(VibrationEffect.createOneShot(400, VibrationEffect.DEFAULT_AMPLITUDE))
-        }
+        RideAlerts.buzz(ctx, 400)
     }
 }

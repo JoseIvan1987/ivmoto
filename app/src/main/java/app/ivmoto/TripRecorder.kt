@@ -133,6 +133,7 @@ class TripRecorder(private val appContext: Context) : LocationListener {
         if (speedMs > maxSpeedMs) maxSpeedMs = speedMs
         curSpeedKmh = (speedMs * 3.6f).coerceAtLeast(0f).toInt()
         SpeedAlert.check(appContext, curSpeedKmh)
+        RideAlerts.onFix(appContext, movingTimeMs, curSpeedKmh, location.latitude, location.longitude)
         hasFix = true
         lastAccuracy = if (location.hasAccuracy()) location.accuracy.toInt() else 0
 
@@ -172,6 +173,7 @@ class TripRecorder(private val appContext: Context) : LocationListener {
         )
         TripStore.save(appContext, trip)
         LogBus.log("[trip] saved ride ${trip.distanceText()} in ${trip.durationText()}")
+        runCatching { RideAlerts.maintenanceCheck(appContext) }
         try { onTripSaved?.invoke(trip) } catch (_: Exception) {}
     }
 

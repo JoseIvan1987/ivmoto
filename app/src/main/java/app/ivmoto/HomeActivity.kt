@@ -24,6 +24,36 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var photo: ImageView
     private lateinit var connect: MaterialButton
 
+    private val takeParkPhoto = registerForActivityResult(androidx.activity.result.contract.ActivityResultContracts.TakePicture()) { ok ->
+        val tmp = java.io.File(cacheDir, "parking/new.jpg")
+        if (ok && tmp.exists()) {
+            runCatching { tmp.copyTo(ParkingSpot.photoFile(this), overwrite = true) }
+            tmp.delete()
+            android.widget.Toast.makeText(this, R.string.park_photo_saved, android.widget.Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    /** Long-press the "parked" line: add a note or a photo so the bike is easy to find. */
+    private fun editParking() {
+        val items = arrayOf(getString(R.string.park_note_hint), getString(R.string.park_photo))
+        com.google.android.material.dialog.MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.park_edit)
+            .setItems(items) { _, i ->
+                if (i == 0) {
+                    FormDialog.show(this, getString(R.string.park_edit), listOf(FormDialog.Field(getString(R.string.park_note_hint), ParkingSpot.note(this)))) { v ->
+                        ParkingSpot.setNote(this, v[0])
+                        onResume()
+                    }
+                } else {
+                    val dir = java.io.File(cacheDir, "parking").apply { mkdirs() }
+                    val uri = androidx.core.content.FileProvider.getUriForFile(this, "$packageName.fileprovider", java.io.File(dir, "new.jpg"))
+                    runCatching { takeParkPhoto.launch(uri) }
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -118,7 +148,10 @@ class HomeActivity : AppCompatActivity() {
         val spot = ParkingSpot.get(this)
         val liveNow = ConnectionState.phase == Phase.STREAMING || ConnectionState.phase == Phase.MIRRORING
         if (spot != null && !liveNow) {
-            parked.text = getString(R.string.parked_label, android.text.format.DateUtils.getRelativeTimeSpanString(spot.time))
+            val note = ParkingSpot.note(this)
+            parked.text = getString(R.string.parked_label, android.text.format.DateUtils.getRelativeTimeSpanString(spot.time)) +
+                (if (note.isNotEmpty()) " · $note" else "") + (if (ParkingSpot.hasPhoto(this)) " 📷" else "")
+            parked.setOnLongClickListener { editParking(); true }
             parked.visibility = android.view.View.VISIBLE
             parked.setOnClickListener { MapActivity.startTo(this, getString(R.string.parked_name), spot.lat, spot.lon) }
         } else {

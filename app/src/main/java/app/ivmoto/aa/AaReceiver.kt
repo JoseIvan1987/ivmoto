@@ -81,6 +81,12 @@ class AaReceiver(
     }
 
     /** Ensure Conscrypt/AAP logging are wired before anything touches SSL. */
+    /** Android Auto runs on this same phone, so only local connections may reach the port. */
+    private fun loopbackServer() = ServerSocket().apply {
+        reuseAddress = true
+        bind(java.net.InetSocketAddress(java.net.InetAddress.getLoopbackAddress(), PORT))
+    }
+
     fun start() {
         if (running) { log("[AA] already running"); return }
         running = true
@@ -90,7 +96,7 @@ class AaReceiver(
         // Loopback listen must not ride a dead bike Network bind (ENONET after Wi‑Fi loss).
         BikeWifi.unbindIfNoBikeNetwork(context)
         try {
-            serverSocket = ServerSocket(PORT).apply { reuseAddress = true }
+            serverSocket = loopbackServer()
             log("[AA] WirelessServer listening on :$PORT")
         } catch (e: Exception) {
             val msg = e.message.orEmpty()
@@ -100,7 +106,7 @@ class AaReceiver(
                 log("[AA] bind :$PORT hit stale network ($msg) — clearing bind and retrying")
                 BikeWifi.unbindProcess(context = context)
                 try {
-                    serverSocket = ServerSocket(PORT).apply { reuseAddress = true }
+                    serverSocket = loopbackServer()
                     log("[AA] WirelessServer listening on :$PORT (after unbind)")
                 } catch (e2: Exception) {
                     log("[AA] failed to bind :$PORT — ${e2.message}")

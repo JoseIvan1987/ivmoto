@@ -12,7 +12,6 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
-import androidx.camera.core.ExperimentalGetImage
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -20,10 +19,6 @@ import androidx.camera.view.PreviewView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.mlkit.vision.barcode.BarcodeScannerOptions
-import com.google.mlkit.vision.barcode.BarcodeScanning
-import com.google.mlkit.vision.barcode.common.Barcode
-import com.google.mlkit.vision.common.InputImage
 import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicBoolean
 
@@ -44,20 +39,19 @@ class ScanActivity : AppCompatActivity() {
 
     /** Fallback when the camera does not work: read the QR from a photo or screenshot. */
     private fun scanPhoto(uri: Uri) {
-        val image = runCatching { InputImage.fromFilePath(this, uri) }.getOrNull()
-        if (image == null) {
-            hint.setText(R.string.scan_photo_failed)
-            return
+        analysisExecutor.execute {
+            val raw = runCatching {
+                val src = android.graphics.ImageDecoder.createSource(contentResolver, uri)
+                val bmp = android.graphics.ImageDecoder.decodeBitmap(src) { dec, _, _ ->
+                    dec.allocator = android.graphics.ImageDecoder.ALLOCATOR_SOFTWARE
+                    dec.setTargetSampleSize(2)
+                }
+                val px = IntArray(bmp.width * bmp.height)
+                bmp.getPixels(px, 0, bmp.width, 0, 0, bmp.width, bmp.height)
+                QrDecoder.decodeArgb(px, bmp.width, bmp.height)
+            }.getOrNull()
+            runOnUiThread { if (raw == null) hint.setText(R.string.scan_photo_failed) else onCode(raw) }
         }
-        val scanner = BarcodeScanning.getClient(
-            BarcodeScannerOptions.Builder().setBarcodeFormats(Barcode.FORMAT_QR_CODE).build(),
-        )
-        scanner.process(image)
-            .addOnSuccessListener { codes ->
-                val raw = codes.firstNotNullOfOrNull { it.rawValue }
-                if (raw == null) hint.setText(R.string.scan_photo_failed) else onCode(raw)
-            }
-            .addOnFailureListener { hint.setText(R.string.scan_photo_failed) }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -81,7 +75,6 @@ class ScanActivity : AppCompatActivity() {
         }
     }
 
-    @androidx.annotation.OptIn(ExperimentalGetImage::class)
     private fun startCamera() {
         val future = ProcessCameraProvider.getInstance(this)
         future.addListener({
@@ -89,23 +82,30 @@ class ScanActivity : AppCompatActivity() {
             val preview = Preview.Builder().build().also {
                 it.setSurfaceProvider(findViewById<PreviewView>(R.id.scan_preview).surfaceProvider)
             }
-            val scanner = BarcodeScanning.getClient(
-                BarcodeScannerOptions.Builder().setBarcodeFormats(Barcode.FORMAT_QR_CODE).build(),
-            )
             val analysis = ImageAnalysis.Builder()
                 .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
                 .build()
             analysis.setAnalyzer(analysisExecutor) { proxy ->
-                val image = proxy.image
-                if (image == null || done.get()) {
+                if (done.get()) {
                     proxy.close()
                     return@setAnalyzer
                 }
-                scanner.process(InputImage.fromMediaImage(image, proxy.imageInfo.rotationDegrees))
-                    .addOnSuccessListener { codes ->
-                        codes.firstNotNullOfOrNull { it.rawValue }?.let { onCode(it) }
+                try {
+                    val plane = proxy.planes[0]
+                    val w = proxy.width
+                    val h = proxy.height
+                    val rowStride = plane.rowStride
+                    val buf = plane.buffer
+                    val luma = ByteArray(w * h)
+                    for (y in 0 until h) {
+                        buf.position(y * rowStride)
+                        buf.get(luma, y * w, w)
                     }
-                    .addOnCompleteListener { proxy.close() }
+                    QrDecoder.decodeLuma(luma, w, h)?.let { onCode(it) }
+                } catch (_: Exception) {
+                } finally {
+                    proxy.close()
+                }
             }
             runCatching {
                 provider.unbindAll()

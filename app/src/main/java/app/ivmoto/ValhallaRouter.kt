@@ -45,6 +45,7 @@ object ValhallaRouter {
         val costing = JSONObject().apply {
             put("shortest", false)
             if (options.avoidHighways) put("exclude_highways", true)
+            if (options.avoidUnpaved) put("exclude_unpaved", true)
             if (options.avoidTolls) {
                 put("use_tolls", 0)
                 put("toll_booth_penalty", 600)

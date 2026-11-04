@@ -123,7 +123,23 @@ class SettingsActivity : AppCompatActivity() {
             },
         )
 
+        section(R.string.st_sec_ride_safety)
+        toggle(R.string.st_rest, R.string.st_rest_desc,
+            { RideSettings.restEnabled(this) }, { RideSettings.setRestEnabled(this, it) })
+        choice(
+            R.string.st_rest_every, R.string.st_rest_every_desc,
+            listOf(1, 2, 3).map { h -> Opt("$h h", RideSettings.restHours(this) == h) { RideSettings.setRestHours(this, h) } },
+        )
+        toggle(R.string.st_road_limit, R.string.st_road_limit_desc,
+            { RideSettings.roadLimit(this) }, { RideSettings.setRoadLimit(this, it) })
+        toggle(R.string.st_curves, R.string.st_curves_desc,
+            { RideSettings.curves(this) }, { RideSettings.setCurves(this, it) })
+        toggle(R.string.st_avoid_dirt, R.string.st_avoid_dirt_desc,
+            { RideSettings.avoidDirt(this) }, { RideSettings.setAvoidDirt(this, it) })
+
         section(R.string.st_sec_updates)
+        toggle(R.string.st_upd_auto, R.string.st_upd_auto_desc,
+            { AppUpdater.autoEnabled(this) }, { AppUpdater.setAuto(this, it) })
         link(R.string.st_upd_now, R.string.st_upd_now_desc) { UpdateFlow.checkManually(this) }
 
         section(R.string.st_sec_help)

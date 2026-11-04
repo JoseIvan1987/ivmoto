@@ -22,7 +22,14 @@ object ParkingSpot {
         return Spot(Double.fromBits(p.getLong("lat", 0)), Double.fromBits(p.getLong("lon", 0)), p.getLong("time", 0))
     }
 
+    fun note(ctx: Context): String = prefs(ctx).getString("note", "").orEmpty()
+    fun setNote(ctx: Context, text: String) = prefs(ctx).edit().putString("note", text.trim()).apply()
+
+    fun photoFile(ctx: Context): java.io.File = java.io.File(ctx.filesDir, "parking.jpg")
+    fun hasPhoto(ctx: Context): Boolean = photoFile(ctx).exists()
+
     fun clear(ctx: Context) {
+        photoFile(ctx).delete()
         prefs(ctx).edit().clear().apply()
     }
 
@@ -39,7 +46,9 @@ object ParkingSpot {
         val best: Location = listOf(LocationManager.GPS_PROVIDER, LocationManager.NETWORK_PROVIDER, LocationManager.PASSIVE_PROVIDER)
             .mapNotNull { runCatching { lm.getLastKnownLocation(it) }.getOrNull() }
             .maxByOrNull { it.time } ?: return
+        photoFile(ctx).delete()
         prefs(ctx).edit()
+            .remove("note")
             .putLong("lat", best.latitude.toBits())
             .putLong("lon", best.longitude.toBits())
             .putLong("time", System.currentTimeMillis())

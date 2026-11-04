@@ -161,6 +161,9 @@ class GpxNav(
         )
     }
 
+    /** A sharp bend within [aheadM] of route point [fromIndex], if any. */
+    fun curveAhead(fromIndex: Int, aheadM: Double): Curve? = CurveAhead.find(track.points, fromIndex, aheadM, minTurnDeg = 70.0)
+
     private class Snap(val lat: Double, val lon: Double, val dist: Double, val along: Double)
 
     /** Project (lat,lon) onto the nearest of the two segments touching point [i]. */

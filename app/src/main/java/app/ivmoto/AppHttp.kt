@@ -111,6 +111,8 @@ object AppHttp {
      * though data is available. Returns null when we can't find one (then we use the default route).
      */
     fun internetNetwork(): Network? {
+        // The rider's VPN, when one is up and working, is where this traffic belongs.
+        vpnNetwork()?.let { return it }
         heldCellular?.let { n ->
             if (networkValidated(n) && !isVpnNetwork(n)) return n
         }
@@ -138,6 +140,18 @@ object AppHttp {
         }
         // A working (validated) network beats a cellular one that has no real internet.
         return otherValidated ?: cellUnvalidated ?: otherInternet
+    }
+
+    private fun vpnNetwork(): Network? {
+        val cm = appContext?.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager ?: return null
+        for (n in cm.allNetworks) {
+            val caps = cm.getNetworkCapabilities(n) ?: continue
+            if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN) &&
+                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)
+            ) return n
+        }
+        return null
     }
 
     private fun networkValidated(n: Network): Boolean {

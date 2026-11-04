@@ -133,6 +133,9 @@ data class PxcFrame(val cmd: Int, val payload: ByteArray) {
             else                       -> "?"
         }
 
+        /** Largest payload accepted from the bike (video frames are far smaller). */
+        const val MAX_PAYLOAD = 16 * 1024 * 1024
+
         /** Reads exactly len bytes or returns false (no data). */
         fun readFully(input: InputStream, buf: ByteArray, len: Int): Boolean {
             var read = 0
@@ -155,7 +158,10 @@ data class PxcFrame(val cmd: Int, val payload: ByteArray) {
             if ((cmd xor totalLen) != magic) {
                 throw IllegalStateException("bad magic: cmd=$cmd len=$totalLen magic=$magic")
             }
-            val payloadLen = (totalLen - 16).coerceAtLeast(0)
+            if (totalLen < 16 || totalLen - 16 > MAX_PAYLOAD) {
+                throw IllegalStateException("frame length out of range: $totalLen")
+            }
+            val payloadLen = totalLen - 16
             val payload = ByteArray(payloadLen)
             if (payloadLen > 0 && !readFully(input, payload, payloadLen)) {
                 throw IllegalStateException("short payload, expected=$payloadLen")
