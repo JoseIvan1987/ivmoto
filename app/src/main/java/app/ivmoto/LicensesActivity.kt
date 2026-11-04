@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-/** About IVMoto: version, the donation QR, a way to send suggestions or report a problem, and the credit. */
+/** About IVMoto: version, a way to send suggestions or report a problem, and the credit. */
 class LicensesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class LicensesActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.licenses_version).text =
             getString(R.string.about_version, BuildConfig.VERSION_NAME)
         findViewById<android.view.View>(R.id.licenses_back).setOnClickListener { finish() }
-        DonateBlock.bind(this)
+        findViewById<android.view.View>(R.id.about_licenses).setOnClickListener { CreditsActivity.start(this) }
         findViewById<android.view.View>(R.id.about_suggest).setOnClickListener { Feedback.suggestion(this) }
         findViewById<android.view.View>(R.id.about_report).setOnClickListener { Feedback.problem(this) }
         AppLinks.linkCredit(findViewById(R.id.about_created_by))

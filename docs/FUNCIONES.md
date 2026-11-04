@@ -32,7 +32,7 @@ Gratis, sin anuncios y sin rastreo. Creada por IVSoftware.
 - Accesos directos y widget.
 
 **Apoyo y cuidado**
-- Donaciones (PayPal y Mercado Pago, con QR).
+- Licencias y créditos: gracias a OpenCfMoto, licencia AGPL completa, código fuente y servicios que usa la app.
 - Sugerencias y reporte de problemas por correo; los datos técnicos solo se envían si tú envías el reporte.
 - Actualizaciones automáticas desde GitHub (una vez al día, siempre activas): se descargan, se verifican (hash y firma) y tú confirmas la instalación.
 - Tema claro (predeterminado), oscuro o automático.

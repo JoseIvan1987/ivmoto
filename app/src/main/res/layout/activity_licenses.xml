@@ -38,20 +38,23 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/about_licenses"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="22dp"
-            android:text="@string/donate_body"
-            android:textColor="@color/text_secondary"
-            android:textSize="14sp" />
-
-        <include layout="@layout/include_donate" />
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_tile"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/about_licenses"
+            android:textColor="@color/ivm_cyan"
+            android:textSize="15sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/about_suggest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bg_tile"
             android:gravity="center"
             android:padding="16dp"

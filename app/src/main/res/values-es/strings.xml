@@ -326,10 +326,6 @@
     <string name="guide_s5d">No lo cierres desde las apps recientes. En teléfonos viejos Android lo cierra en segundo plano y el servidor se apaga. En los ajustes de batería del teléfono, pon Android Auto en Sin restricciones.</string>
     <string name="bt_recommended">Recomendada para tu moto</string>
     <string name="created_by">Rediseñado por IVSoftware</string>
-    <string name="home_donate">Donar</string>
-    <string name="donate_title">Apoya a IVMoto</string>
-    <string name="donate_body">IVMoto es gratis y no tiene anuncios. Si te es útil, puedes ayudarnos a seguir mejorándola.</string>
-    <string name="donate_hint">Escanea con la app de PayPal</string>
     <string name="about_version">Versión %1$s</string>
     <string name="trips_empty">Aún no hay viajes</string>
     <string name="trips_empty_desc">Abre el mapa y toca Comenzar viaje para grabar tu primer recorrido.</string>
@@ -469,12 +465,6 @@
     <string name="pad_live">Enviado a la moto</string>
     <string name="bt_open_pad">Control interactivo</string>
     <string name="bt_open_pad_desc">Botones virtuales para configurar y probar qué hace cada pulsación</string>
-    <string name="donate_paypal">PayPal</string>
-    <string name="donate_mp">Mercado Pago</string>
-    <string name="donate_scan_paypal">Escanea con la app de PayPal</string>
-    <string name="donate_scan_mp">Escanea con la app de Mercado Pago</string>
-    <string name="donate_open">Abrir PayPal</string>
-    <string name="donate_open_mp">Abrir Mercado Pago</string>
     <string name="upd_title">Versión %1$s disponible</string>
     <string name="upd_no_notes">Mejoras y correcciones.</string>
     <string name="upd_install">Actualizar</string>
@@ -556,4 +546,20 @@
     <string name="park_photo_saved">Foto guardada</string>
     <string name="maint_notify_title">Mantenimiento pendiente</string>
     <string name="map_share_hint">Compartir ubicación</string>
+    <string name="about_licenses">Licencias y créditos</string>
+    <string name="credits_title">Licencias y créditos</string>
+    <string name="credits_thanks_title">Gracias a OpenCfMoto</string>
+    <string name="credits_thanks">IVMoto nació gracias a OpenCfMoto, de Alexandru y sus colaboradores. Ese proyecto fue el impulso. IVMoto solo lo rediseñó para ofrecer una mejor experiencia.</string>
+    <string name="credits_orig_title">Proyecto original: OpenCfMoto</string>
+    <string name="credits_repo_title">Código fuente de IVMoto</string>
+    <string name="credits_license_title">Licencia: GNU AGPL v3 o posterior</string>
+    <string name="credits_license_desc">Copyright (C) 2026 Alexandru y los colaboradores de OpenCfMoto. IVMoto se distribuye con la misma licencia. Toca para leer el texto completo.</string>
+    <string name="credits_lineage_title">Basado en el trabajo de</string>
+    <string name="credits_lineage_desc">headunit-revived (andreknieriem y colaboradores), de donde viene el receptor de Android Auto; y las ramas de open-cfmoto de coletz/dcoletto, richardbizik, BojanJ e ionutradu252.</string>
+    <string name="credits_apis_title">Servicios en línea que usa la app</string>
+    <string name="credits_apis_desc">OpenStreetMap (datos del mapa, © colaboradores de OpenStreetMap, licencia ODbL) · OpenFreeMap (mapa) · Nominatim y Photon (búsqueda de lugares) · OSRM y Valhalla (rutas) · Overpass (gasolineras y límites de velocidad) · Open-Meteo (clima de la ruta) · GitHub (actualizaciones).</string>
+    <string name="credits_libs_title">Bibliotecas</string>
+    <string name="credits_libs_desc">AndroidX y Material Components (Apache 2.0) · MapLibre Native (BSD-2) · osmdroid (Apache 2.0) · ZXing (Apache 2.0) · OkHttp (Apache 2.0) · jmDNS (Apache 2.0) · Conscrypt (Apache 2.0) · Protocol Buffers (BSD-3).</string>
+    <string name="credits_note">CFMOTO, MotoPlay, EasyConn, Carbit, Android, Android Auto y Google son marcas de sus dueños. IVMoto es independiente y no está afiliada a ellas. El programa se ofrece sin garantía de ningún tipo.</string>
+    <string name="credits_license_close">Cerrar</string>
 </resources>

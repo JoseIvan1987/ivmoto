@@ -11,8 +11,8 @@ import android.widget.TextView
 /** Outside links the app offers, always opened by an explicit tap. */
 object AppLinks {
     const val IVSOFTWARE = "https://ivsoftware.pages.dev/"
-    const val DONATE = "https://www.paypal.com/donate/?hosted_button_id=EHU9TQUVSFN7A"
-    const val DONATE_MP = "https://link.mercadopago.com.mx/ivmoto"
+    const val REPO = "https://github.com/JoseIvan1987/ivmoto"
+    const val ORIGINAL = "https://github.com/zanderp/open-cfmoto"
 
     fun open(ctx: Context, url: String) {
         runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }

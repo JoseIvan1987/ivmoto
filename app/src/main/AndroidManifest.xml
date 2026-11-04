@@ -84,6 +84,7 @@
         </activity>
         <activity android:name=".BikePickerActivity" android:exported="false" />
         <activity android:name=".LicensesActivity" android:exported="false" />
+        <activity android:name=".CreditsActivity" android:exported="false" />
         <activity android:name=".ConnectActivity" android:exported="false" android:launchMode="singleTop" />
         <activity android:name=".ScanActivity" android:exported="false" />
         <activity android:name=".SettingsActivity" android:exported="false" />
@@ -92,7 +93,6 @@
         <activity android:name=".ButtonsActivity" android:exported="false" />
         <activity android:name=".ControllerActivity" android:exported="false" />
         <activity android:name=".BikesActivity" android:exported="false" />
-        <activity android:name=".DonateActivity" android:exported="false" />
         <activity android:name=".TripsActivity" android:exported="false" />
         <activity android:name=".PlacesActivity" android:exported="false" />
         <activity android:name=".DashSearchActivity" android:exported="false" android:windowSoftInputMode="stateVisible|adjustResize" />

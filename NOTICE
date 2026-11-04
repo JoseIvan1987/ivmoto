@@ -97,12 +97,13 @@ Third-party dependencies (fetched at build time, not vendored)
   * MapLibre Native Android (Map / GPX dash) ............ BSD-2-Clause
   * jmDNS (mDNS/NSD) ..................................... Apache License 2.0
   * Conscrypt (TLS provider) ............................. Apache License 2.0
-  * Google ML Kit — Barcode Scanning .................... Google APIs Terms of Service
+  * ZXing (QR reading, on the phone) ..................... Apache License 2.0
+  * OkHttp (network) ..................................... Apache License 2.0
   * Protocol Buffers (protobuf-java) .................... BSD-3-Clause
   * JUnit / Espresso (tests only) ....................... EPL-1.0 / Apache 2.0
 
 OpenStreetMap data used for Map / GPX (and via OpenFreeMap / OSRM / Overpass /
-Nominatim / Valhalla when online) is © OpenStreetMap contributors, available under the
+Nominatim / Photon / Valhalla / Open-Meteo when online) is © OpenStreetMap contributors, available under the
 Open Database License (ODbL). OpenFreeMap styles/tiles: see openfreemap.org terms.
 Valhalla routing (avoid highways/tolls fallback): public instance at
 valhalla1.openstreetmap.de — please be polite with request volume.

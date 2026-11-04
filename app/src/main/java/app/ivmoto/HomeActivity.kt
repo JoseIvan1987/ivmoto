@@ -83,7 +83,6 @@ class HomeActivity : AppCompatActivity() {
         val openSettings = { SettingsActivity.start(this) }
         findViewById<android.view.View>(R.id.home_settings).setOnClickListener { openSettings() }
         findViewById<TextView>(R.id.home_change_bike).setOnClickListener { BikePickerActivity.start(this) }
-        findViewById<TextView>(R.id.home_donate).setOnClickListener { DonateActivity.start(this) }
         AppLinks.linkCredit(findViewById(R.id.home_created_by))
     }
 

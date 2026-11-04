@@ -342,10 +342,6 @@
     <string name="guide_s5d">Do not close it from recent apps. On older phones Android shuts it down in the background and the server turns off. In the phone\'s battery settings, set Android Auto to Unrestricted.</string>
     <string name="bt_recommended">Recommended for your bike</string>
     <string name="created_by">Redesigned by IVSoftware</string>
-    <string name="home_donate">Donate</string>
-    <string name="donate_title">Support IVMoto</string>
-    <string name="donate_body">IVMoto is free and has no ads. If it is useful to you, you can help us keep improving it.</string>
-    <string name="donate_hint">Scan with the PayPal app</string>
     <string name="about_version">Version %1$s</string>
     <string name="trips_empty">No rides yet</string>
     <string name="trips_empty_desc">Open the map and tap Start trip to record your first ride.</string>
@@ -485,12 +481,6 @@
     <string name="pad_live">Sent to the bike</string>
     <string name="bt_open_pad">Interactive control</string>
     <string name="bt_open_pad_desc">Virtual buttons to configure and test what each press does</string>
-    <string name="donate_paypal">PayPal</string>
-    <string name="donate_mp">Mercado Pago</string>
-    <string name="donate_scan_paypal">Scan with the PayPal app</string>
-    <string name="donate_scan_mp">Scan with the Mercado Pago app</string>
-    <string name="donate_open">Open PayPal</string>
-    <string name="donate_open_mp">Open Mercado Pago</string>
     <string name="upd_title">Version %1$s available</string>
     <string name="upd_no_notes">Improvements and fixes.</string>
     <string name="upd_install">Update</string>
@@ -572,4 +562,20 @@
     <string name="park_photo_saved">Photo saved</string>
     <string name="maint_notify_title">Service due</string>
     <string name="map_share_hint">Share location</string>
+    <string name="about_licenses">Licences and credits</string>
+    <string name="credits_title">Licences and credits</string>
+    <string name="credits_thanks_title">Thanks to OpenCfMoto</string>
+    <string name="credits_thanks">IVMoto exists thanks to OpenCfMoto, by Alexandru and contributors. That project was the spark. IVMoto only redesigned it to offer a better experience.</string>
+    <string name="credits_orig_title">Original project: OpenCfMoto</string>
+    <string name="credits_repo_title">IVMoto source code</string>
+    <string name="credits_license_title">Licence: GNU AGPL v3 or later</string>
+    <string name="credits_license_desc">Copyright (C) 2026 Alexandru and the OpenCfMoto contributors. IVMoto is distributed under the same licence. Tap to read the full text.</string>
+    <string name="credits_lineage_title">Built on the work of</string>
+    <string name="credits_lineage_desc">headunit-revived (andreknieriem and contributors), where the Android Auto receiver comes from; and the open-cfmoto forks by coletz/dcoletto, richardbizik, BojanJ and ionutradu252.</string>
+    <string name="credits_apis_title">Online services the app uses</string>
+    <string name="credits_apis_desc">OpenStreetMap (map data, © OpenStreetMap contributors, ODbL licence) · OpenFreeMap (map) · Nominatim and Photon (place search) · OSRM and Valhalla (routes) · Overpass (fuel stations and speed limits) · Open-Meteo (route weather) · GitHub (updates).</string>
+    <string name="credits_libs_title">Libraries</string>
+    <string name="credits_libs_desc">AndroidX and Material Components (Apache 2.0) · MapLibre Native (BSD-2) · osmdroid (Apache 2.0) · ZXing (Apache 2.0) · OkHttp (Apache 2.0) · jmDNS (Apache 2.0) · Conscrypt (Apache 2.0) · Protocol Buffers (BSD-3).</string>
+    <string name="credits_note">CFMOTO, MotoPlay, EasyConn, Carbit, Android, Android Auto and Google are trademarks of their owners. IVMoto is independent and not affiliated with them. The program comes with no warranty of any kind.</string>
+    <string name="credits_license_close">Close</string>
 </resources>
