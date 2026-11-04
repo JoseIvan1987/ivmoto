@@ -42,7 +42,7 @@ Para firmar el APK de release define tu propia llave (ver SECURITY.md); **nunca*
 GNU AGPL v3 o posterior, la misma licencia del proyecto original. Los avisos de licencia y de los componentes de código abierto incluidos están en [NOTICE](NOTICE) y [LICENSE](LICENSE).
 
 ## Créditos
-- **[OpenCfMoto](https://github.com/zanderp/open-cfmoto)**, de Alexandru y sus colaboradores: el proyecto original que dio el impulso a IVMoto. Gracias.
+- **[OpenCfMoto](https://github.com/zanderp/open-cfmoto)**, de Alexandru y sus colaboradores: el proyecto original que dio el impulso a IVMoto. Gracias. Si IVMoto te sirve, puedes [donar al proyecto original](https://ko-fi.com/alexandrupopa).
 - **headunit-revived** (andreknieriem y colaboradores): de donde viene el receptor de Android Auto.
 - Las ramas de open-cfmoto de coletz/dcoletto, richardbizik, BojanJ e ionutradu252, en las que se apoya OpenCfMoto.
 

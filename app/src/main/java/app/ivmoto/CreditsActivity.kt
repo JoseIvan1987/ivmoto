@@ -14,6 +14,8 @@ class CreditsActivity : ListScreenActivity() {
         card(getString(R.string.credits_thanks_title), getString(R.string.credits_thanks), R.color.text_primary)
         card(getString(R.string.credits_orig_title), AppLinks.ORIGINAL.removePrefix("https://"), R.color.ivm_cyan)
             .setOnClickListener { AppLinks.open(this, AppLinks.ORIGINAL) }
+        card(getString(R.string.credits_donate_title), getString(R.string.credits_donate_desc), R.color.ivm_cyan)
+            .setOnClickListener { AppLinks.open(this, AppLinks.ORIGINAL_DONATE) }
         card(getString(R.string.credits_repo_title), AppLinks.REPO.removePrefix("https://"), R.color.ivm_cyan)
             .setOnClickListener { AppLinks.open(this, AppLinks.REPO) }
         card(getString(R.string.credits_license_title), getString(R.string.credits_license_desc))

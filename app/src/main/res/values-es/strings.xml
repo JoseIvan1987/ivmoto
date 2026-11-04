@@ -562,4 +562,6 @@
     <string name="credits_libs_desc">AndroidX y Material Components (Apache 2.0) · MapLibre Native (BSD-2) · osmdroid (Apache 2.0) · ZXing (Apache 2.0) · OkHttp (Apache 2.0) · jmDNS (Apache 2.0) · Conscrypt (Apache 2.0) · Protocol Buffers (BSD-3).</string>
     <string name="credits_note">CFMOTO, MotoPlay, EasyConn, Carbit, Android, Android Auto y Google son marcas de sus dueños. IVMoto es independiente y no está afiliada a ellas. El programa se ofrece sin garantía de ningún tipo.</string>
     <string name="credits_license_close">Cerrar</string>
+    <string name="credits_donate_title">Dona al proyecto original</string>
+    <string name="credits_donate_desc">Si IVMoto te sirve, apoya a OpenCfMoto, que lo hizo posible: ko-fi.com/alexandrupopa</string>
 </resources>

@@ -13,6 +13,8 @@ object AppLinks {
     const val IVSOFTWARE = "https://ivsoftware.pages.dev/"
     const val REPO = "https://github.com/JoseIvan1987/ivmoto"
     const val ORIGINAL = "https://github.com/zanderp/open-cfmoto"
+    /** The original project's own donation page (taken from its README). */
+    const val ORIGINAL_DONATE = "https://ko-fi.com/alexandrupopa"
 
     fun open(ctx: Context, url: String) {
         runCatching { ctx.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
